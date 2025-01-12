@@ -23,8 +23,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import CodeProjects from '../components/CodeProjects.vue'
-import DesignProjects from '../components/DesignProjects.vue'
+import CodeProjects from './portofolio/CodeProjects.vue'
+import DesignProjects from './portofolio/DesignProjects.vue'
 
 // Define filter categories
 const filters = ['Code', 'Design']
