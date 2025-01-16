@@ -10,5 +10,5 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
 import AboutMeSection from '../components/AboutMeSection.vue'
-import PortfolioSection from '../components/PortfolioSection.vue'
+import PortfolioSection from '../components/portofolio/PortfolioSection.vue'
 </script>
