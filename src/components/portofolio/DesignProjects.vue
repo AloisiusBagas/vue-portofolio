@@ -8,6 +8,7 @@
           v-for="(item, index) in portfolioItems"
           :key="index"
           class="col-lg-4 col-md-6 portfolio-item"
+          data-aos="zoom-in"
         >
           <div class="portfolio-img">
             <img :src="item.image" class="img-fluid" :alt="item.title" />

@@ -1,6 +1,6 @@
 <template>
   <section id="resume" class="resume py-5 px-4">
-    <div class="container">
+    <div class="container" data-aos="fade-right">
       <h2 class="d-flex justify-content-center mb-2">My Resume</h2>
 
       <div class="row">
@@ -12,11 +12,9 @@
             <p>
               <em>{{ edu.institution }}</em>
             </p>
-            <p>
-              <ul>
+            <ul>
               <li v-for="(desc, idx) in edu.description" :key="idx">{{ desc }}</li>
             </ul>
-            </p>
           </div>
           <h3 class="resume-title">Informal Education</h3>
           <div v-for="(edu, index) in informalEducation" :key="index" class="resume-item">
@@ -25,11 +23,9 @@
             <p>
               <em>{{ edu.institution }}</em>
             </p>
-            <p>
-              <ul>
+            <ul>
               <li v-for="(desc, idx) in edu.description" :key="idx">{{ desc }}</li>
             </ul>
-            </p>
           </div>
           <h3 class="resume-title">Organizational Experience</h3>
           <div v-for="(exp, index) in organizationalExperience" :key="index" class="resume-item">
@@ -38,14 +34,12 @@
             <p>
               <em>{{ exp.institution }}</em>
             </p>
-            <p>
-              <ul>
+            <ul>
               <li v-for="(desc, idx) in exp.description" :key="idx">{{ desc }}</li>
             </ul>
-            </p>
           </div>
         </div>
-        
+
         <div class="col-lg-6">
           <h3 class="resume-title">Professional Experience</h3>
           <div v-for="(job, index) in experience" :key="index" class="resume-item">
@@ -55,7 +49,7 @@
               <em>{{ job.company }}</em>
             </p>
             <ul>
-              <li v-for="(task, idx) in job.tasks" :key="idx">{{ task }}</li>
+              <li v-for="(task, idx) in job.tasks" :key="idx" v-html="task"></li>
             </ul>
           </div>
         </div>
@@ -85,7 +79,7 @@ const informalEducation = ref([
     years: 'Jan 2018 - Feb 2018',
     institution: 'Kota Tangerang, Alam Sutera',
     description: [
-      'Developed a prototype application to find and book food truck using Swift programming language',
+      'Developed a prototype application to find and book food truck using Swift programming language'
     ]
   }
 ])
@@ -105,7 +99,7 @@ const organizationalExperience = ref([
     years: 'Jan 2018 - Jan 2019',
     institution: 'Bina Nusantara English Club',
     description: [
-      'Produced compelling digital content for social and print media platforms and supported event design needs to enhance brand visibility.',
+      'Produced compelling digital content for social and print media platforms and supported event design needs to enhance brand visibility.'
     ]
   }
 ])
@@ -116,9 +110,9 @@ const experience = ref([
     years: 'Feb 2022 - Present',
     company: 'PT Adira Dinamika Multi Finance, Kota Jakarta Selatan',
     tasks: [
-      'Developed the Workflow Marketing Proposal (WMP) application based on the Business Requirements Document (BRD) to support Adira and its dealer network, simplifying pricing and commission management workflows. Technology used: VueJS, Java.',
-      'Developed the Ad1Survey application for mobile and web platforms, optimizing data collection and analysis processes to enhance efficiency in customer surveys. Technology used: Flutter.',
-      'Maintained and improved a web-based video call survey application, enabling seamless video communication between customers and surveyors for accurate and efficient data collection. Technology used: Flutter, ReactJS, Twilio, Java.',
+      'Developed the Workflow Marketing Proposal (WMP) application based on the Business Requirements Document (BRD) to support Adira and its dealer network, simplifying pricing and commission management workflows.<br><strong>Technology used: VueJS, Java</strong>.',
+      'Developed the Ad1Survey application for mobile and web platforms, optimizing data collection and analysis processes to enhance efficiency in customer surveys.<br><strong>Technology used: Flutter</strong>.',
+      'Maintained and improved a web-based video call survey application, enabling seamless video communication between customers and surveyors for accurate and efficient data collection.<br><strong>Technology used: Flutter, ReactJS, Twilio, Java</strong>.',
       'Provided support, maintenance, and improvements for various existing applications within Adira’s Loan Origination System, ensuring optimal functionality and performance.'
     ]
   },
@@ -127,7 +121,7 @@ const experience = ref([
     years: 'Aug 2021 - Jan 2022',
     company: 'PT Mulipolar Technology, Tangerang, Banten',
     tasks: [
-      'Developed an e-requisition application using Microsoft Power Platform to streamline review and processing, enabling requisitions to include comprehensive item details for improved efficiency. Technology used: Microsoft PowerApps, Power Automate, SharePoint list.',
+      'Developed an e-requisition application using Microsoft Power Platform to streamline review and processing, enabling requisitions to include comprehensive item details for improved efficiency.<br><strong>Technology used: Microsoft PowerApps, Power Automate, SharePoint list</strong>.',
       'Collaborated with senior staff in customer meetings to discuss project scope and objectives.',
       'Recommended and consulted with clients on the most appropriate graphic design',
       'delivered project results to stakeholders, ensuring alignment and transparency.'
@@ -138,8 +132,8 @@ const experience = ref([
     years: 'Mar 2020 - Jul 2021',
     company: 'PT Accelist Lentera Indonesia,Tangerang Selatan, Banten',
     tasks: [
-      'Promoted to Full-Stack Web Developer at PT Adicita Inovasi Teknologi; developed Confins software solutions for the financial services and multi-finance sectors. Technology used: .NET, AngularJS.',
-      'Improved and maintained the iTalent e-learning app, achieving 10K+ downloads on Google Play and the Apple App Store.  Technology used: Flutter, dotNET.',
+      'Promoted to Full-Stack Web Developer at PT Adicita Inovasi Teknologi; developed Confins software solutions for the financial services and multi-finance sectors.<br><strong>Technology used: .NET, AngularJS</strong>.',
+      'Improved and maintained the iTalent e-learning app, achieving 10K+ downloads on Google Play and the Apple App Store.<br><strong>Technology used: Flutter, dotNET</strong>.'
     ]
   },
   {
@@ -149,8 +143,7 @@ const experience = ref([
     tasks: [
       'Enhanced BINUS University’s image by actively supporting key events, including Edufair, Campus Tour, and MassProm',
       'Conducted marketing research to develop effective promotion and branding strategies.',
-      'Created engaging content for social and print media content to establish and strengthen company branding.',
-
+      'Created engaging content for social and print media content to establish and strengthen company branding.'
     ]
   }
 ])

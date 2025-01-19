@@ -8,7 +8,7 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 import 'boxicons/css/boxicons.min.css'
-
+import 'aos/dist/aos.css'
 const app = createApp(App)
 
 app.use(createPinia())
