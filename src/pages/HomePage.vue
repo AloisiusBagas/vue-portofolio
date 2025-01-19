@@ -3,6 +3,7 @@
   <main>
     <HeroSection />
     <AboutMeSection />
+    <ResumeSection />
     <PortfolioSection />
   </main>
 </template>
@@ -11,4 +12,5 @@
 import HeroSection from '../components/HeroSection.vue'
 import AboutMeSection from '../components/AboutMeSection.vue'
 import PortfolioSection from '../components/portofolio/PortfolioSection.vue'
+import ResumeSection from '../components/ResumeSection.vue'
 </script>

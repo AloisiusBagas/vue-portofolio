@@ -1,11 +1,16 @@
 <!-- src/components/PortfolioSection.vue -->
 <template>
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio" class="portfolio py-5 px-4">
     <div class="container">
       <h2 class="d-flex justify-content-center mb-2">Portfolio</h2>
       <ul class="filters d-flex justify-content-center">
-        <li v-for="(filter, index) in filters" :key="index" :class="{ 'filter-active': selectedFilter === filter }"
-          @click="setFilter(filter)" class="filter-item">
+        <li
+          v-for="(filter, index) in filters"
+          :key="index"
+          :class="{ 'filter-active': selectedFilter === filter }"
+          @click="setFilter(filter)"
+          class="filter-item"
+        >
           {{ filter }}
         </li>
       </ul>
