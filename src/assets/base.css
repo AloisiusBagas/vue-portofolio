@@ -1,28 +1,53 @@
 :root {
-  html {
-    scroll-behavior: smooth;
-  }
-  /* light mode as default */
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  scroll-behavior: smooth;
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+  /* Colors for Light Mode */
+--primary-orange-color : #FFB727;
+--defaultOrangecolor : #FFC107;
+--lightOrangecolor : #FFF2DB;
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
+  /* Colors for Dark Mode */
+--primarydarkcolor : #242734;
+--defaultdarkcolor : #323647;
+--lightgreycolor : #E6E8EB;
+
+
+--darkgrey : #989898;
+--whitecolor : #FFFFFF;
+
+--darkblue : #126782;
+--mediumblue : #219ebc;
+
+--redError : #f27059;
+--greenSuccess : #21cb88;
+
+  /* Typography */
+  --font-size-large: 26px;
+  --font-size-medium: 16px;
+  --font-size-small: 14px;
+
+  --font-weight-bold: 700;
+  --font-weight-medium: 600;
+
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --spacing-large: 40px;
+
+  /* Border Radius */
+  --border-radius-circle: 50%;
 }
 
-/* Dark mode when .dark-mode class is added to body */
 body.dark-mode {
-  --color-background: var(--vt-c-black);
-  --color-background-soft: var(--vt-c-black-soft);
-  --color-background-mute: var(--vt-c-black-mute);
+  /* Colors for Dark Mode */
+  --color-background: #121212;
+  --color-background-soft: #1e1e1e;
+  --color-background-mute: #2c2c2c;
 
-  --color-border: var(--vt-c-divider-dark-2);
-  --color-border-hover: var(--vt-c-divider-dark-1);
+  --color-border: #4a5561;
+  --color-border-hover: #5a6672;
 
-  --color-heading: var(--vt-c-text-dark-1);
-  --color-text: var(--vt-c-text-dark-2);
+  --color-heading: #ffffff;
+  --color-subheading: #ffcc33;
+  --color-text: #cccccc;
 }

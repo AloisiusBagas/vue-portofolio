@@ -5,6 +5,7 @@
     <AboutMeSection />
     <ResumeSection />
     <PortfolioSection />
+    <contact-section />
   </main>
 </template>
 
@@ -13,6 +14,7 @@ import HeroSection from '../components/HeroSection.vue'
 import AboutMeSection from '../components/AboutMeSection.vue'
 import PortfolioSection from '../components/portofolio/PortfolioSection.vue'
 import ResumeSection from '../components/ResumeSection.vue'
+import ContactSection from '../components/ContactSection.vue'
 import { onMounted } from 'vue'
 import AOS from 'aos'
 onMounted(() => {
