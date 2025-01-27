@@ -1,22 +1,37 @@
-<!-- src/views/Home.vue -->
 <template>
-  <main>
+  <main :class="theme">
+    <NavbarSection />
     <HeroSection />
     <AboutMeSection />
     <ResumeSection />
     <PortfolioSection />
-    <contact-section />
+    <ContactSection />
+    <!-- Theme Toggle Button on the right -->
+    <button @click="toggleTheme" class="btn btn-warning">
+      Switch to {{ theme === 'light' ? 'Dark' : 'Light' }} Mode
+    </button>
   </main>
 </template>
 
 <script setup lang="ts">
-import HeroSection from '../components/HeroSection.vue'
-import AboutMeSection from '../components/AboutMeSection.vue'
-import PortfolioSection from '../components/portofolio/PortfolioSection.vue'
-import ResumeSection from '../components/ResumeSection.vue'
-import ContactSection from '../components/ContactSection.vue'
-import { onMounted } from 'vue'
+import { ref, onMounted, defineAsyncComponent } from 'vue'
 import AOS from 'aos'
+
+// Lazy-load components
+const NavbarSection = defineAsyncComponent(() => import('../components/NavbarSection.vue'))
+const HeroSection = defineAsyncComponent(() => import('../components/HeroSection.vue'))
+const AboutMeSection = defineAsyncComponent(() => import('../components/AboutMeSection.vue'))
+const PortfolioSection = defineAsyncComponent(
+  () => import('../components/portofolio/PortfolioSection.vue')
+)
+const ResumeSection = defineAsyncComponent(() => import('../components/ResumeSection.vue'))
+const ContactSection = defineAsyncComponent(() => import('../components/ContactSection.vue'))
+
+const theme = ref('light')
+const toggleTheme = () => {
+  theme.value = theme.value === 'light' ? 'dark' : 'light'
+}
+
 onMounted(() => {
   AOS.init({
     duration: 1300,
