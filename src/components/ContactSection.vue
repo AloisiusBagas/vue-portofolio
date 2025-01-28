@@ -1,5 +1,5 @@
 <template>
-    <section id="contact" class="contact section">
+    <section id="contact" class="contact section py-5 px-4">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">

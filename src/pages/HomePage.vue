@@ -1,11 +1,11 @@
 <template>
   <main :class="theme">
-    <NavbarSection />
-    <HeroSection />
-    <AboutMeSection />
-    <ResumeSection />
-    <PortfolioSection />
-    <ContactSection />
+    <NavbarSection :sections="sections" />
+    <template v-for="section in sections" :key="section.id">
+      <section :id="section.id">
+        <component :is="section.component" />
+      </section>
+    </template>
     <!-- Theme Toggle Button on the right -->
     <button @click="toggleTheme" class="btn btn-warning">
       Switch to {{ theme === 'light' ? 'Dark' : 'Light' }} Mode
@@ -27,6 +27,13 @@ const PortfolioSection = defineAsyncComponent(
 const ResumeSection = defineAsyncComponent(() => import('../components/ResumeSection.vue'))
 const ContactSection = defineAsyncComponent(() => import('../components/ContactSection.vue'))
 
+const sections = [
+  { id: 'home', component: HeroSection },
+  { id: 'aboutme', label: 'About Me', component: AboutMeSection },
+  { id: 'resume', label: 'Resume', component: ResumeSection },
+  { id: 'portofolio', label: 'Portofolio', component: PortfolioSection },
+  { id: 'contact', label: 'Contact', component: ContactSection }
+];
 const theme = ref('light')
 const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'

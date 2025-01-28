@@ -1,29 +1,14 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg navbar-dark bg-black bg-opacity-50 fixed-top"
-    :class="{ hidden: !showNavbar }"
-  >
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black bg-opacity-50 fixed-top" :class="{ hidden: !showNavbar }">
     <a class="navbar-brand" href="#">MyApp</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse w-100" id="navbarNav">
       <ul class="navbar-nav">
-        <li
-          class="nav-item"
-          v-for="section in sections"
-          :key="section.id"
-          :class="{ active: isActive(section.id) }"
-          @click="setActiveSection(section.id)"
-        >
+        <li class="nav-item" v-for="section in sections" :key="section.id" :class="{ active: isActive(section.id) }"
+          @click="setActiveSection(section.id)">
           <a class="nav-link text-center" :href="'#' + section.id">{{ section.label }}</a>
         </li>
       </ul>
@@ -32,14 +17,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, Component } from 'vue'
+import { PropType } from 'vue';
 
-const sections = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'services', label: 'Services' },
-  { id: 'contact', label: 'Contact' }
-]
+const props = defineProps({
+  sections: {
+    type: Array as PropType<{ id: string; label?: string; component: Component }[]>,
+    required: true,
+  },
+});
+const { sections } = props;
+
+const debounce = (func: Function, delay: number) => {
+  let timeout: number;
+  return (...args: any[]) => {
+    clearTimeout(timeout);
+    timeout = window.setTimeout(() => func(...args), delay);
+  };
+};
+
 
 const activeSection = ref('home')
 const showNavbar = ref(true)
@@ -50,8 +46,13 @@ const isActive = (sectionId: string) => {
 }
 
 const setActiveSection = (sectionId: string) => {
-  activeSection.value = sectionId
-}
+  activeSection.value = sectionId;
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
 
 const handleScroll = () => {
   if (window.scrollY > lastScrollY) {
@@ -64,29 +65,34 @@ const handleScroll = () => {
   lastScrollY = window.scrollY
 }
 
-// Detect which section is currently in view
 const updateActiveSection = () => {
   sections.forEach((section) => {
-    const element = document.getElementById(section.id)
+    const element = document.getElementById(section.id);
     if (element) {
-      const rect = element.getBoundingClientRect()
-      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-        activeSection.value = section.id // Set active section when in view
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        activeSection.value = section.id;
       }
     }
-  })
-}
+  });
+};
+
+
+
+
+const debouncedUpdateActiveSection = debounce(updateActiveSection, 50);
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  window.addEventListener('scroll', updateActiveSection) // Update active section on scroll
-  updateActiveSection() // Initialize active section on load
-})
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', debouncedUpdateActiveSection);
+  updateActiveSection(); // Initialize active section
+});
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
-  window.removeEventListener('scroll', updateActiveSection)
-})
+  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('scroll', debouncedUpdateActiveSection);
+});
+
 </script>
 
 <style scoped>
@@ -135,5 +141,20 @@ onBeforeUnmount(() => {
   .navbar-brand {
     display: none;
   }
+
+  @media (max-width: 576px) {
+    .navbar {
+      height: 60px;
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+    }
+
+    .navbar-nav .nav-item {
+      margin: 5px 0;
+    }
+  }
+
 }
 </style>
