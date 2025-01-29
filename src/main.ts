@@ -1,5 +1,4 @@
 import './assets/main.css'
-
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
@@ -8,6 +7,7 @@ import router from './router'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 import 'boxicons/css/boxicons.min.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import 'aos/dist/aos.css'
 const app = createApp(App)
 

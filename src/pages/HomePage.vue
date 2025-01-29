@@ -33,7 +33,7 @@ const sections = [
   { id: 'resume', label: 'Resume', component: ResumeSection },
   { id: 'portofolio', label: 'Portofolio', component: PortfolioSection },
   { id: 'contact', label: 'Contact', component: ContactSection }
-];
+]
 const theme = ref('light')
 const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'

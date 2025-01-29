@@ -17,7 +17,6 @@
           <h2>My Bio</h2>
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
-
           <!-- Progress Bar Section -->
           <div class="my-3">
             <!-- Loop through skills to generate progress bars dynamically -->
