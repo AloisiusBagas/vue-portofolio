@@ -38,13 +38,15 @@ const theme = ref('light')
 const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
 }
-
 onMounted(() => {
-  AOS.init({
-    duration: 1300,
-    once: true,
-    easing: 'ease-in-out',
-    offset: 100
-  })
+  // Delay AOS initialization
+  setTimeout(() => {
+    AOS.init({
+      duration: 1300,
+      once: true, // Animations will only trigger once
+      easing: 'ease-in-out',
+      offset: 100
+    })
+  }, 500)
 })
 </script>
