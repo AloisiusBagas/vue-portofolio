@@ -8,7 +8,7 @@ interface PortofolioState {
   error: string | null
 }
 
-export const usePortofolioStore = defineStore('contactStore', {
+export const useContactStore = defineStore('contactStore', {
   state: (): PortofolioState => ({
     items: [],
     loading: false,
@@ -16,20 +16,18 @@ export const usePortofolioStore = defineStore('contactStore', {
   }),
 
   actions: {
-    async fetchItems(emailModel: EmailModel) {
+    async submitForm(emailModel: EmailModel): Promise<boolean> {
       this.loading = true
       this.error = null
 
-      // Header yang ingin dikirim
       const headers = {
         'Content-Type': 'application/json'
       }
 
-      // Body untuk request
       const body = {
-        service_id: import.meta.env.VUE_APP_SERVICE_ID,
-        template_id: import.meta.env.VUE_TEMPLATE_ID,
-        user_id: import.meta.env.VUE_USER_ID,
+        service_id: import.meta.env.VITE_APP_SERVICE_ID,
+        template_id: import.meta.env.VITE_TEMPLATE_ID,
+        user_id: import.meta.env.VITE_USER_ID,
         template_params: {
           from_name: emailModel.name,
           from_email: emailModel.email,
@@ -45,9 +43,10 @@ export const usePortofolioStore = defineStore('contactStore', {
           { headers }
         )
         this.items = response.data
+        return true
       } catch (error: any) {
-        // Tangani error jika terjadi
-        this.error = error.message || 'An error occurred while fetching items.'
+        this.error = error.message || 'An error occurred while sending the email.'
+        return false
       } finally {
         this.loading = false
       }

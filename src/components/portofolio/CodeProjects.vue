@@ -29,7 +29,9 @@ export default defineComponent({
   setup() {
     const portofolioStore = usePortofolioStore()
     onMounted(() => {
-      portofolioStore.fetchItems()
+      if (portofolioStore.items.length === 0) {
+        portofolioStore.fetchItems()
+      }
     })
     const mappedItems = computed(() => {
       return portofolioStore.items.map((repo) => ({

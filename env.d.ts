@@ -1,10 +1,7 @@
-/// <reference types="vite/client" />
-
 interface ImportMetaEnv {
-  readonly VUE_APP_SERVICE_ID: string
-  readonly VUE_APP_TEMPLATE_ID: string
-  readonly VUE_APP_USER_ID: string
-  readonly VUE_APP_API_KEY: string // Misalnya untuk API key
+  readonly VITE_APP_SERVICE_ID: string
+  readonly VITE_TEMPLATE_ID: string
+  readonly VITE_USER_ID: string
 }
 
 interface ImportMeta {

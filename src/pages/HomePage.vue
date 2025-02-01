@@ -42,11 +42,11 @@ onMounted(() => {
   // Delay AOS initialization
   setTimeout(() => {
     AOS.init({
-      duration: 1300,
+      duration: 1000,
       once: true, // Animations will only trigger once
       easing: 'ease-in-out',
       offset: 100
     })
-  }, 500)
+  }, 600)
 })
 </script>

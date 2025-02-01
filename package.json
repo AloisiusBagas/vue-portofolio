@@ -21,7 +21,8 @@
     "boxicons": "^2.1.4",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "vue-sweetalert2": "^5.0.11"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
