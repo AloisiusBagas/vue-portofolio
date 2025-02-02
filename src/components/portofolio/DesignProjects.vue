@@ -9,6 +9,7 @@
           :key="index"
           class="col-lg-4 col-md-6 portfolio-item"
           data-aos="zoom-in"
+          data-aos-delay="200"
         >
           <div class="portfolio-img">
             <img :src="item.image" class="img-fluid" :alt="item.title" />

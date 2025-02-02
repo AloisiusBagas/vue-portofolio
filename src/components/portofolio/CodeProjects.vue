@@ -1,7 +1,7 @@
 <template>
   <div class="row g-4">
     <div v-for="item in mappedItems" :key="item.id" class="col-12 col-md-6">
-      <div class="card mb-3 h-100 custom-card" data-aos="zoom-in">
+      <div class="card mb-3 h-100 custom-card" data-aos="zoom-in" data-aos-delay="200">
         <div class="row g-0 h-100">
           <div class="green-container w-100 h-10-sm h-100-md"></div>
           <div class="col">

@@ -68,7 +68,10 @@
               <template v-if="loadingSubmit">
                 <div class="spinner-border text-light" role="status"></div>
               </template>
-              <template v-else> Send Message </template>
+              <template v-else>
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Message
+              </template>
             </button>
           </div>
         </div>

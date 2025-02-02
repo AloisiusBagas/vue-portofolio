@@ -17,9 +17,7 @@
           <h2>My Bio</h2>
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
-          <!-- Progress Bar Section -->
           <div class="my-3">
-            <!-- Loop through skills to generate progress bars dynamically -->
             <div class="row">
               <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
                 <div class="mb-1">{{ skill.name }}</div>
@@ -38,11 +36,17 @@
               </div>
             </div>
           </div>
-
-          <!-- Action Buttons -->
-          <div class="d-flex gap-3 justify-content-start mt-3">
-            <a href="#hire" class="btn btn-success">Hire Me</a>
-            <a href="#download-cv" class="btn btn-secondary">Download CV</a>
+          <h2>Hobbies</h2>
+          <div class="d-flex flex-row gap-5 justify-content-start mt-3">
+            <div v-for="(hobby, index) in hobbies" :key="index">
+              <div class="d-flex flex-column align-items-center bd-highlight mb-3">
+                <div class="icon-wrapper">
+                  <i :class="['icon', hobby.icon]"></i>
+                  <!-- Added 'icon' class here -->
+                </div>
+                <span>{{ hobby.name }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -69,8 +73,39 @@ const skills = ref([
   { name: 'Vue.js', level: 80 },
   { name: 'Node.js', level: 75 }
 ])
+
+const hobbies = ref([
+  { name: 'Code', icon: 'fa-solid fa-code' },
+  { name: 'Sport', icon: 'fa-solid fa-dumbbell' },
+  { name: 'Design', icon: 'fa-solid fa-pen-nib' },
+  { name: 'Photography', icon: 'fa-solid fa-camera' }
+])
 </script>
 
 <style scoped>
-/* Add any custom styles here */
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid orange;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.icon {
+  font-size: 20px; /* Change the font size to adjust the icon size */
+  transition: filter 0.3s ease;
+  color: orange; /* Set the initial color to orange */
+}
+
+.icon-wrapper:hover {
+  background-color: orange;
+}
+
+.icon-wrapper:hover .icon {
+  color: white;
+}
 </style>
