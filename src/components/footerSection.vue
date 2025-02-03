@@ -1,0 +1,66 @@
+<template>
+    <footer class="footer">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center gap-2">
+                <p>© 2025 Aloisius Bagas Wicaksono. All rights reserved.</p>
+                <p>
+                    📩 Interested in working together? Contact me at
+                    <a href="mailto:waloisiusbagas@gmail.com" class="email-link">waloisiusbagas@gmail.com</a>
+                </p>
+                <div class="d-flex flex-row gap-3">
+                    <div v-for="(media, index) in socialMedia" :key="index">
+                        <a :href="media.path" target="_blank" rel="noopener noreferrer">
+                            <i :class="['icon', media.icon]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const socialMedia = ref([
+    { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/yourprofile' },
+    { icon: 'fa-brands fa-square-github', path: 'https://github.com/yourprofile' },
+    { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/yourprofile' },
+    { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/yourprofile' }
+]);
+</script>
+
+<style scoped>
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.icon {
+    font-size: 24px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: orange;
+}
+
+a {
+    text-decoration: none;
+}
+
+.email-link {
+    color: orange;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+</style>

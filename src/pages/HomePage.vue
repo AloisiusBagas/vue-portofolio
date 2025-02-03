@@ -6,7 +6,6 @@
         <component :is="section.component" />
       </section>
     </template>
-    <!-- Theme Toggle Button on the right -->
     <button @click="toggleTheme" class="btn btn-warning">
       Switch to {{ theme === 'light' ? 'Dark' : 'Light' }} Mode
     </button>
@@ -21,29 +20,29 @@ import AOS from 'aos'
 const NavbarSection = defineAsyncComponent(() => import('../components/NavbarSection.vue'))
 const HeroSection = defineAsyncComponent(() => import('../components/HeroSection.vue'))
 const AboutMeSection = defineAsyncComponent(() => import('../components/AboutMeSection.vue'))
-const PortfolioSection = defineAsyncComponent(
-  () => import('../components/portofolio/PortfolioSection.vue')
-)
+const PortfolioSection = defineAsyncComponent(() => import('../components/portofolio/PortfolioSection.vue'))
 const ResumeSection = defineAsyncComponent(() => import('../components/ResumeSection.vue'))
 const ContactSection = defineAsyncComponent(() => import('../components/ContactSection.vue'))
+const FooterSection = defineAsyncComponent(() => import('../components/footerSection.vue'))
+
 
 const sections = [
   { id: 'home', component: HeroSection },
   { id: 'aboutme', label: 'About Me', component: AboutMeSection },
   { id: 'resume', label: 'Resume', component: ResumeSection },
   { id: 'portofolio', label: 'Portofolio', component: PortfolioSection },
-  { id: 'contact', label: 'Contact', component: ContactSection }
+  { id: 'contact', label: 'Contact', component: ContactSection },
+  { id: 'footer', component: FooterSection }
 ]
 const theme = ref('light')
 const toggleTheme = () => {
   theme.value = theme.value === 'light' ? 'dark' : 'light'
 }
 onMounted(() => {
-  // Delay AOS initialization
   setTimeout(() => {
     AOS.init({
       duration: 1000,
-      once: true, // Animations will only trigger once
+      once: true,
       easing: 'ease-in-out',
       offset: 100
     })
