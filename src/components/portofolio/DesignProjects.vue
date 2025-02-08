@@ -43,15 +43,15 @@ const portfolioItems = [
   },
   {
     title: 'Web 3',
-    image: 'images/Portofolio/Poster/fix.jpg'
+    image: 'images/Portofolio/Poster/poste+medarr3.jpg'
   },
   {
     title: 'App 2',
-    image: 'images/Portofolio/Poster/fix.jpg'
+    image: 'images/Portofolio/Poster/posterfinal.jpg'
   },
   {
     title: 'Card 2',
-    image: 'images/Portofolio/Poster/fix.jpg'
+    image: 'images/Portofolio/Poster/Untitled-16.jpg'
   }
 ]
 </script>

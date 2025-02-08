@@ -20,16 +20,19 @@ import AOS from 'aos'
 const NavbarSection = defineAsyncComponent(() => import('../components/NavbarSection.vue'))
 const HeroSection = defineAsyncComponent(() => import('../components/HeroSection.vue'))
 const AboutMeSection = defineAsyncComponent(() => import('../components/AboutMeSection.vue'))
-const PortfolioSection = defineAsyncComponent(() => import('../components/portofolio/PortfolioSection.vue'))
 const ResumeSection = defineAsyncComponent(() => import('../components/ResumeSection.vue'))
+const ServiceSection = defineAsyncComponent(() => import('../components/ServiceSection.vue'))
+const PortfolioSection = defineAsyncComponent(
+  () => import('../components/portofolio/PortfolioSection.vue')
+)
 const ContactSection = defineAsyncComponent(() => import('../components/ContactSection.vue'))
 const FooterSection = defineAsyncComponent(() => import('../components/footerSection.vue'))
-
 
 const sections = [
   { id: 'home', component: HeroSection },
   { id: 'aboutme', label: 'About Me', component: AboutMeSection },
   { id: 'resume', label: 'Resume', component: ResumeSection },
+  { id: 'services', label: 'Services', component: ServiceSection },
   { id: 'portofolio', label: 'Portofolio', component: PortfolioSection },
   { id: 'contact', label: 'Contact', component: ContactSection },
   { id: 'footer', component: FooterSection }
