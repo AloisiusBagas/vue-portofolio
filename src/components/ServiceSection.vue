@@ -44,6 +44,9 @@ const listServices = [
 </script>
 
 <style scoped>
+#services {
+  background-color: lightgrey;
+}
 /* Basic Card Styling */
 .card {
   border-radius: 8px;
