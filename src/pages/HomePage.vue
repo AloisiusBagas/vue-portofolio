@@ -1,14 +1,11 @@
 <template>
   <main :class="theme">
-    <NavbarSection :sections="sections" />
+    <NavbarSection :sections="sections" :handleSwitchMode="toggleTheme" />
     <template v-for="section in sections" :key="section.id">
       <section :id="section.id">
         <component :is="section.component" />
       </section>
     </template>
-    <button @click="toggleTheme" class="btn btn-warning">
-      Switch to {{ theme === 'light' ? 'Dark' : 'Light' }} Mode
-    </button>
   </main>
 </template>
 
