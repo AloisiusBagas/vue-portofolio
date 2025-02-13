@@ -11,15 +11,24 @@
           @click="setActiveSection(section.id)">
           <a class="nav-link text-center" :href="'#' + section.id" v-if="section.label">{{
             section.label
-            }}</a>
+          }}</a>
         </li>
         <a class="navbar-brand-mobile" href="#">MyApp</a>
+        <li class="nav-item justify-content-center d-flex toggle-switch-mobile mt-4">
+          <i class="fas fa-sun"></i>
+          <!-- Default switch -->
+          <div class="ms-2 form-check form-switch ">
+            <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
+              @click="handleSwitchMode($event)" />
+          </div>
+          <i class="fas fa-moon"></i>
+        </li>
       </ul>
     </div>
-    <li class="nav-item align-items-center d-flex">
+    <li class="nav-item align-items-center d-flex toggle-switch-web">
       <i class="fas fa-sun"></i>
       <!-- Default switch -->
-      <div class="ms-2 form-check form-switch">
+      <div class="ms-2 form-check form-switch ">
         <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
           @click="handleSwitchMode($event)" />
       </div>
@@ -185,6 +194,14 @@ onBeforeUnmount(() => {
 
   .navbar-brand-mobile {
     display: block;
+  }
+
+  .toggle-switch-web {
+    display: none !important;
+  }
+
+  .toggle-switch-mobile {
+    display: none;
   }
 
   @media (max-width: 576px) {

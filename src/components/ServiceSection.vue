@@ -5,9 +5,7 @@
       <div v-for="(service, index) in listServices" :key="index">
         <div
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
-          :style="{ backgroundImage: `url(${service.backgroundImage})` }"
-          data-aos="zoom-in-down"
-        >
+          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="zoom-in-down">
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
           <img :src="service.iconPath" width="60" height="60" class="content" />
@@ -47,6 +45,7 @@ const listServices = [
 #services {
   background-color: lightgrey;
 }
+
 /* Basic Card Styling */
 .card {
   border-radius: 8px;
@@ -83,16 +82,20 @@ const listServices = [
 /* Hover Box */
 .hover-box {
   position: absolute;
-  bottom: -100%; /* Starts off-screen */
+  bottom: -100%;
+  /* Starts off-screen */
   left: 0;
   width: 100%;
   height: 100%;
-  background: orange; /* Light box effect */
+  background: orange;
+  /* Light box effect */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: bottom 0.5s ease-in-out; /* Smooth animation */
-  z-index: 3; /* Ensures it's above everything */
+  transition: bottom 0.5s ease-in-out;
+  /* Smooth animation */
+  z-index: 3;
+  /* Ensures it's above everything */
 }
 
 /* Hover Title */
@@ -105,6 +108,7 @@ const listServices = [
 
 /* Show box on hover */
 .card:hover .hover-box {
-  bottom: 0; /* Moves the box up */
+  bottom: 0;
+  /* Moves the box up */
 }
 </style>
