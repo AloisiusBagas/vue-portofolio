@@ -1,11 +1,14 @@
 <template>
   <section id="services" class="about py-5 px-4">
-    <h2 class="d-flex justify-content-center mb-2" data-aos="zoom-in-down">My Services</h2>
+    <HeaderText text="My Services" data-aos="zoom-in-down" />
+
     <div class="d-flex flex-row justify-content-center gap-5 flex-wrap">
       <div v-for="(service, index) in listServices" :key="index">
         <div
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
-          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="zoom-in-down">
+          :style="{ backgroundImage: `url(${service.backgroundImage})` }"
+          data-aos="zoom-in-down"
+        >
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
           <img :src="service.iconPath" width="60" height="60" class="content" />
@@ -22,6 +25,10 @@
 </template>
 
 <script setup lang="ts">
+import { defineAsyncComponent } from 'vue'
+
+const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
+
 const listServices = [
   {
     backgroundImage: '/images/website.jpg',
@@ -43,7 +50,7 @@ const listServices = [
 
 <style scoped>
 #services {
-  background-color: lightgrey;
+  background-color: var(--Secondary-background-color);
 }
 
 /* Basic Card Styling */

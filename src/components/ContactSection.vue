@@ -1,9 +1,6 @@
 <template>
   <section id="contact" class="contact section py-5 px-4">
-    <!-- Section Title -->
-    <div class="container section-title d-flex justify-content-center mb-2" data-aos="fade-up">
-      <h2>Contact</h2>
-    </div>
+    <HeaderText text="Contact Me" data-aos="fade-up" />
 
     <div class="container" data-aos="fade-up">
       <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
@@ -81,12 +78,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, defineAsyncComponent, ref } from 'vue'
 import { useContactStore } from '../stores/contactStore'
 import { EmailModel } from '../models/emailModel'
 import Swal from 'sweetalert2'
-import { title } from 'process'
 
+const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
 const contactStore = useContactStore()
 
 // Form fields
@@ -155,7 +152,14 @@ const handleSubmit = async () => {
 <style scoped>
 .contact .info-wrap,
 .contact .php-email-form {
-  background: #fff;
+  background: var(--Background-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.dark .contact .php-email-form {
+  background: var(--Secondary-background-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
   margin-bottom: 30px;
@@ -169,20 +173,20 @@ const handleSubmit = async () => {
 
 .contact .info-item i {
   font-size: 20px;
-  color: #0078ff;
+  color: var(--primary-orange-color);
   width: 56px;
   height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 1px solid rgba(0, 120, 255, 0.6);
+  border: 2px solid var(--primary-orange-color);
   margin-right: 15px;
   transition: 0.3s;
 }
 
 .contact .info-item i:hover {
-  background: #0078ff;
+  background: var(--primary-orange-color);
   color: #fff;
 }
 
@@ -209,12 +213,12 @@ const handleSubmit = async () => {
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: #0078ff;
+  border-color: var(--primary-orange-color);
 }
 
 .contact .php-email-form button {
   color: #fff;
-  background: #0078ff;
+  background: var(--primary-orange-color);
   border: none;
   padding: 10px 30px;
   border-radius: 50px;
@@ -222,7 +226,7 @@ const handleSubmit = async () => {
 }
 
 .contact .php-email-form button:hover {
-  background: rgba(0, 120, 255, 0.8);
+  background: var(--primary-orange-color);
 }
 
 @media (max-width: 575px) {

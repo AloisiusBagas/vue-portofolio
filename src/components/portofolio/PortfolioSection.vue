@@ -2,7 +2,7 @@
 <template>
   <section id="portfolio" class="portfolio py-5 px-4">
     <div class="container">
-      <h2 class="d-flex justify-content-center mb-2" data-aos="zoom-in">Portfolio</h2>
+      <HeaderText text="Portofolio" data-aos="fade-up" />
       <ul class="filters d-flex justify-content-center" data-aos="zoom-in">
         <li
           v-for="(filter, index) in filters"
@@ -21,9 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 import CodeProjects from './CodeProjects.vue'
 import DesignProjects from './DesignProjects.vue'
+
+const HeaderText = defineAsyncComponent(() => import('../../components/HeaderText.vue'))
 
 // Define filter categories
 const filters = ['Code', 'Design']

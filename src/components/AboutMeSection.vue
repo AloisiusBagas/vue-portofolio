@@ -14,7 +14,7 @@
 
         <!-- Bio and Skill Section -->
         <div class="col-lg-6" data-aos="fade-left">
-          <h2>My Bio</h2>
+          <HeaderText text="About Me" />
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
           <div class="my-3">
@@ -55,7 +55,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
+import '../assets/base.css'
+const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
 
 const bio = ref(
   'Self-motivated programmer with a strong passion for developing web and mobile applications, experienced in developing, testing, and maintaining enterprise software applications, as well as designing print and social media content.'
@@ -83,6 +85,12 @@ const hobbies = ref([
 </script>
 
 <style scoped>
+.progress {
+  background-color: var(--Light-Grey);
+}
+.progress-bar {
+  background-color: var(--primary-orange-color);
+}
 .icon-wrapper {
   width: 56px;
   height: 56px;
@@ -90,7 +98,7 @@ const hobbies = ref([
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid orange;
+  border: 2px solid var(--primary-orange-color);
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
@@ -98,11 +106,11 @@ const hobbies = ref([
 .icon {
   font-size: 20px; /* Change the font size to adjust the icon size */
   transition: filter 0.3s ease;
-  color: orange; /* Set the initial color to orange */
+  color: var(--primary-orange-color);
 }
 
 .icon-wrapper:hover {
-  background-color: orange;
+  background-color: var(--primary-orange-color);
 }
 
 .icon-wrapper:hover .icon {

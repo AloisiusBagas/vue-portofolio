@@ -1,7 +1,7 @@
 <template>
   <section id="resume" class="resume py-5 px-4">
     <div class="container" data-aos="fade-right">
-      <h2 class="d-flex justify-content-center mb-2">My Resume</h2>
+      <HeaderText text="My Resume" />
 
       <div class="row">
         <div class="col-lg-6">
@@ -59,7 +59,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
+const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
 
 const education = ref([
   {
@@ -168,7 +169,7 @@ const experience = ref([
   font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
-  color: #ffb727;
+  color: var(--primary-orange-color);
   margin-bottom: 10px;
 }
 .resume .resume-item h5 {
