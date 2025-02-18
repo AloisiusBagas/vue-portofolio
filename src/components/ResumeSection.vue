@@ -156,14 +156,16 @@ const experience = ref([
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #3b434a;
+  color: var(--text-color);
 }
+
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
   border-left: 2px solid #82909c;
   position: relative;
 }
+
 .resume .resume-item h4 {
   line-height: 18px;
   font-size: 16px;
@@ -172,6 +174,7 @@ const experience = ref([
   color: var(--primary-orange-color);
   margin-bottom: 10px;
 }
+
 .resume .resume-item h5 {
   font-size: 16px;
   background: #eef0f2;
@@ -180,15 +183,28 @@ const experience = ref([
   font-weight: 600;
   margin-bottom: 10px;
 }
+
+.dark .resume .resume-item h5 {
+  font-size: 16px;
+  background: var(--Secondary-background-color);
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
 .resume .resume-item ul {
   padding-left: 20px;
 }
+
 .resume .resume-item ul li {
   padding-bottom: 10px;
 }
+
 .resume .resume-item:last-child {
   padding-bottom: 0;
 }
+
 .resume .resume-item::before {
   content: '';
   position: absolute;

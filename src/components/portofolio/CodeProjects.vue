@@ -55,26 +55,35 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.card-body {
+  color: var(--text-color);
+}
+
 .custom-card {
   border-radius: 8px;
   overflow: hidden;
-  /* Ensures child elements like green container don't overflow */
+  background-color: var(--Background-color);
+  ;
 }
 
-/* Common green container styles */
+.dark .custom-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--Secondary-background-color);
+  ;
+}
+
 .green-container {
   background-color: green;
   display: block;
 }
 
-/* Small screens: height 10px */
 @media (max-width: 767.98px) {
   .h-10-sm {
     height: 15px !important;
   }
 }
 
-/* Medium and larger screens: width 10px */
 @media (min-width: 768px) {
   .h-100-md {
     width: 15px !important;

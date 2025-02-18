@@ -9,6 +9,8 @@
   --primary-orange-color: #ffb727;
 
   --Light-Grey: #e6e8eb;
+  --dark-grey-color: #262626;
+
 }
 
 .dark {
@@ -18,7 +20,7 @@
   --primary-orange-color: #f56e0f;
   --Light-Grey: #e6e8eb;
 
-  --grey-color: #262626;
+  --dark-grey-color: #262626;
 }
 
 main {
