@@ -162,7 +162,7 @@ const experience = ref([
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #82909c;
+  border-left: 2px solid var(--Light-Grey);
   position: relative;
 }
 
