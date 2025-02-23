@@ -21,7 +21,7 @@
         />
       </div>
 
-      <a href="#about" class="btn-scroll scrollto mt-5" title="Scroll Down">
+      <a href="#aboutme" class="btn-scroll scrollto mt-5" title="Scroll Down">
         <i class="bx bx-chevrons-down"></i>
       </a>
     </div>

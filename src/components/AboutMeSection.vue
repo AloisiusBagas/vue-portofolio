@@ -1,10 +1,15 @@
 <template>
-  <section id="about" class="about py-5 px-4">
+  <section id="aboutme" class="about py-5 px-4">
     <div class="container">
       <div class="row align-items-start">
         <!-- Image Section -->
         <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-left">
-          <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%" />
+          <img
+            src="/images/FotoWisuda.jpg"
+            alt="My Bio"
+            class="img-fluid rounded shadow"
+            style="max-width: 70%"
+          />
         </div>
 
         <!-- Bio and Skill Section -->
@@ -17,8 +22,14 @@
               <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
                 <div class="mb-1">{{ skill.name }}</div>
                 <div class="progress mb-3">
-                  <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
-                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
+                  <div
+                    class="progress-bar"
+                    role="progressbar"
+                    :style="{ width: skill.animatedLevel + '%' }"
+                    :aria-valuenow="skill.animatedLevel"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
                     {{ skill.animatedLevel }}%
                   </div>
                 </div>
@@ -101,9 +112,8 @@ onMounted(() => {
     { threshold: 0.3 }
   )
 
-  observer.observe(document.querySelector('#about') as Element)
+  observer.observe(document.querySelector('#aboutme') as Element)
 })
-
 </script>
 
 <style scoped>
