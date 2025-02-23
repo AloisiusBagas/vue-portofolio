@@ -192,7 +192,12 @@ onBeforeUnmount(() => {
 .toggle-switch-mobile {
   display: none !important;
 }
-
+@media (min-width: 1000px) {
+  .custom-navbar {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
 @media (max-width: 1000px) {
   .navbar-toggler {
     position: absolute;

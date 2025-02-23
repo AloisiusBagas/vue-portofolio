@@ -2,7 +2,7 @@
   <main :class="theme">
     <NavbarSection :sections="sections" :handleSwitchMode="toggleTheme" />
     <template v-for="section in sections" :key="section.id">
-      <section :id="section.id">
+      <section :id="section.id" :aria-label="section.label || section.id">
         <component :is="section.component" />
       </section>
     </template>
