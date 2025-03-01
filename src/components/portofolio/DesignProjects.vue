@@ -111,10 +111,22 @@ const endSwipe = (event: TouchEvent | MouseEvent) => {
 
 // Portfolio items data
 const portfolioItems = [
-  { title: 'App 1', image: 'images/Portofolio/Poster/fix.jpg', category: 'posters' },
-  { title: 'Web 3', image: 'images/Portofolio/Poster/poste+medarr3.jpg', category: 'posters' },
-  { title: 'App 2', image: 'images/Portofolio/Poster/posterfinal.jpg', category: 'posters' },
-  { title: 'Card 2', image: 'images/Portofolio/Poster/Untitled-16.jpg', category: 'posters' },
+  { title: 'Company Visit (BNEC)', image: 'images/Portofolio/Poster/fix.jpg', category: 'posters' },
+  {
+    title: 'National English Olympic (BNEC)',
+    image: 'images/Portofolio/Poster/poste+medarr3.jpg',
+    category: 'posters'
+  },
+  {
+    title: 'Seminar (BNEC)',
+    image: 'images/Portofolio/Poster/posterfinal.jpg',
+    category: 'posters'
+  },
+  {
+    title: 'Seminar (BNEC)',
+    image: 'images/Portofolio/Poster/Untitled-16.jpg',
+    category: 'posters'
+  },
   { title: 'Instagram 1', image: 'images/Portofolio/IG/binus1.jpg', category: 'instagram' },
   { title: 'Instagram 2', image: 'images/Portofolio/IG/binus2.jpg', category: 'instagram' },
   { title: 'Instagram 3', image: 'images/Portofolio/IG/bnec1.jpg', category: 'instagram' },

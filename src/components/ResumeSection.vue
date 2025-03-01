@@ -4,7 +4,7 @@
       <HeaderText text="My Resume" />
 
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-right">
           <h3 class="resume-title">Education</h3>
           <div v-for="(edu, index) in education" :key="index" class="resume-item">
             <h4>{{ edu.degree }}</h4>
@@ -16,6 +16,7 @@
               <li v-for="(desc, idx) in edu.description" :key="idx">{{ desc }}</li>
             </ul>
           </div>
+
           <h3 class="resume-title">Informal Education</h3>
           <div v-for="(edu, index) in informalEducation" :key="index" class="resume-item">
             <h4>{{ edu.degree }}</h4>
@@ -27,6 +28,7 @@
               <li v-for="(desc, idx) in edu.description" :key="idx">{{ desc }}</li>
             </ul>
           </div>
+
           <h3 class="resume-title">Organizational Experience</h3>
           <div v-for="(exp, index) in organizationalExperience" :key="index" class="resume-item">
             <h4>{{ exp.degree }}</h4>
@@ -40,7 +42,7 @@
           </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="300">
           <h3 class="resume-title">Professional Experience</h3>
           <div v-for="(job, index) in experience" :key="index" class="resume-item">
             <h4>{{ job.title }}</h4>
@@ -162,7 +164,7 @@ const experience = ref([
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid var(--Light-Grey);
+  border-left: 2px solid var(--grey-color);
   position: relative;
 }
 
@@ -213,7 +215,12 @@ const experience = ref([
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
-  border: 2px solid #82909c;
+  background: var(--Background-color);
+  border: 2px solid var(--grey-color);
+}
+
+.dark.resume .resume-item::before {
+  background: var(--Background-color);
+  border: 2px solid red;
 }
 </style>

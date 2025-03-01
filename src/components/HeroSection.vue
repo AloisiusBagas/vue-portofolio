@@ -51,6 +51,10 @@ import Typewriter from './Typewriter.vue'
   z-index: 0; /* Make sure the overlay stays behind the content */
 }
 
+.dark #hero:before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 #hero .hero-container {
   position: relative; /* Ensure text and other content stay on top */
   z-index: 1; /* Content should be on top of the overlay */

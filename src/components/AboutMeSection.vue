@@ -13,7 +13,7 @@
         </div>
 
         <!-- Bio and Skill Section -->
-        <div class="col-lg-6" data-aos="fade-left">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
           <HeaderText text="About Me" />
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
@@ -67,12 +67,12 @@ const experience = ref(
 )
 
 const skills = ref([
-  { name: 'Design', level: 84, animatedLevel: 0 },
-  { name: 'HTML5', level: 90, animatedLevel: 0 },
-  { name: 'JavaScript', level: 85, animatedLevel: 0 },
-  { name: 'CSS3', level: 88, animatedLevel: 0 },
-  { name: 'Vue.js', level: 80, animatedLevel: 0 },
-  { name: 'Node.js', level: 75, animatedLevel: 0 }
+  { name: 'Javascript(Vue)', level: 90, animatedLevel: 0 },
+  { name: 'Flutter', level: 90, animatedLevel: 0 },
+  { name: 'HTML/CSS', level: 80, animatedLevel: 0 },
+  { name: 'dotNet(C#)', level: 80, animatedLevel: 0 },
+  { name: 'Adobe Photoshop', level: 85, animatedLevel: 0 },
+  { name: 'Adobe Illustrator', level: 80, animatedLevel: 0 }
 ])
 
 const hobbies = ref([
