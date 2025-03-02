@@ -95,6 +95,11 @@
     transform: translateY(-5px);
   }
 }
+
+.text-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 /*--------------------------------------------------------------
 # My Portfolio
 --------------------------------------------------------------*/

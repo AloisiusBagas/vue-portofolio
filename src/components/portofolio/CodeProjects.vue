@@ -9,21 +9,42 @@
         <div class="green-container" :class="getLanguageClass(item.language)"></div>
         <div class="flex-grow-1">
           <div class="card-body">
-            <h5 class="card-title">{{ item.name }}</h5>
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title text-link" @click="openLinkInNewTab(item.url)">
+                {{ item.name }}
+              </h5>
+              <i
+                class="fa-solid fa-up-right-from-square"
+                style="cursor: pointer"
+                @click="openLinkInNewTab(item.url)"
+              ></i>
+            </div>
             <p class="card-text">
               {{ item.description }}
             </p>
-            <p class="card-text">
-              <img
-                v-if="getLanguageIcon(item.language)"
-                :src="getLanguageIcon(item.language)"
-                :alt="item.language"
-                width="20"
-                height="20"
-                class="me-1"
-              />
-              <i>{{ item.language }}</i>
-            </p>
+            <div class="d-flex flex-row justify-content-around">
+              <div>
+                <p class="card-text">
+                  <img
+                    v-if="getLanguageIcon(item.language)"
+                    :src="getLanguageIcon(item.language)"
+                    :alt="item.language"
+                    width="20"
+                    height="20"
+                    class="me-2"
+                  />
+                  <i>{{ item.language }}</i>
+                </p>
+              </div>
+              <div class="d-flex align-items-center gap-1">
+                <i class="col fa-regular fa-star"></i>
+                <p class="col m-0">{{ item.stargazers_count }}</p>
+              </div>
+              <div class="d-flex align-items-center gap-1">
+                <i class="fa-solid fa-code-fork me-2"></i>
+                <p class="col m-0">{{ item.stargazers_count }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -43,6 +64,14 @@ export default defineComponent({
         portofolioStore.fetchItems()
       }
     })
+
+    const openLinkInNewTab = (url) => {
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer')
+      } else {
+        console.warn('No URL provided')
+      }
+    }
     const getLanguageClass = (language: string) => {
       switch (language?.toLowerCase()) {
         case 'java':
@@ -78,8 +107,10 @@ export default defineComponent({
         id: repo.id,
         name: repo.name,
         description: repo.description || 'No description provided',
-        url: repo.html_url,
+        url: repo.url,
         language: repo.language || 'Unknown',
+        stargazers_count: repo.stargazers_count,
+        forks_count: repo.forks_count,
         createdAt: new Date(repo.created_at).toLocaleDateString(),
         updatedAt: new Date(repo.updated_at).toLocaleDateString()
       }))
@@ -90,7 +121,8 @@ export default defineComponent({
       loading: portofolioStore.loading,
       error: portofolioStore.error,
       getLanguageClass,
-      getLanguageIcon
+      getLanguageIcon,
+      openLinkInNewTab
     }
   }
 })

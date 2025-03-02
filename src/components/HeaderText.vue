@@ -21,6 +21,7 @@ defineProps({
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .header-text {

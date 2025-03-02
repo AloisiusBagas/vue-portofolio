@@ -37,7 +37,7 @@ export const usePortofolioStore = defineStore('PortofolioStore', {
       if (index !== -1) {
         modifiedData[index] = {
           ...modifiedData[index],
-          url: 'https://aloisiusbagas.github.io/#/',
+          url: 'https://aloisiusbagas.github.io/',
           language: 'Dart'
         }
       }
@@ -58,7 +58,9 @@ export const usePortofolioStore = defineStore('PortofolioStore', {
 
         if (langA < langB) return -1
         if (langA > langB) return 1
-        return 0
+
+        // If languages are the same, sort by stargazers_count (descending)
+        return (b.stargazers_count || 0) - (a.stargazers_count || 0)
       })
 
       return modifiedData

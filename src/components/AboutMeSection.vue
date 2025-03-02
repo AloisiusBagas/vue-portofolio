@@ -67,7 +67,7 @@ const experience = ref(
 )
 
 const skills = ref([
-  { name: 'Javascript(Vue)', level: 90, animatedLevel: 0 },
+  { name: 'Javascript (Vue/Angular)', level: 90, animatedLevel: 0 },
   { name: 'Flutter', level: 90, animatedLevel: 0 },
   { name: 'HTML/CSS', level: 80, animatedLevel: 0 },
   { name: 'dotNet(C#)', level: 80, animatedLevel: 0 },

@@ -5,7 +5,7 @@
         <p>© 2025 Aloisius Bagas Wicaksono. All rights reserved.</p>
         <p>
           📩 Interested in working together? Contact me at
-          <a href="mailto:waloisiusbagas@gmail.com" class="email-link">waloisiusbagas@gmail.com</a>
+          <a href="mailto:waloisiusbagas@gmail.com" class="text-link">waloisiusbagas@gmail.com</a>
         </p>
         <div class="d-flex flex-row gap-3">
           <div v-for="(media, index) in socialMedia" :key="index">
@@ -23,10 +23,10 @@
 import { ref } from 'vue'
 
 const socialMedia = ref([
-  { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/yourprofile' },
-  { icon: 'fa-brands fa-square-github', path: 'https://github.com/yourprofile' },
-  { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/yourprofile' },
-  { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/yourprofile' }
+  { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/' },
+  { icon: 'fa-brands fa-square-github', path: 'https://github.com/AloisiusBagas' },
+  { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/AloisiusBagas' },
+  { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/aloisiusbagas_' }
 ])
 </script>
 
@@ -56,11 +56,7 @@ a {
   text-decoration: none;
 }
 
-.email-link {
+.text-link {
   color: var(--primary-orange-color);
-}
-
-.email-link:hover {
-  text-decoration: underline;
 }
 </style>
