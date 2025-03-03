@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import axiosInstance from '../services/axios.ts'
+import { isAxiosError } from 'axios'
 
 interface PortfolioState {
   items: any[]
@@ -23,7 +24,13 @@ export const usePortofolioStore = defineStore('PortofolioStore', {
         const response = await axiosInstance.get('https://api.github.com/users/AloisiusBagas/repos')
         this.items = this.modifyData(response.data)
       } catch (error: any) {
-        this.error = error.message || 'An error occurred while fetching items.'
+        if (isAxiosError(error)) {
+          // Axios-specific error handling
+          this.error = error.response?.data?.message || error.message || 'Failed to fetch data from GitHub.'
+        } else {
+          // Generic error (non-Axios errors, like runtime errors)
+          this.error = error.message || 'An unknown error occurred while fetching items.'
+        }
       } finally {
         this.loading = false
       }

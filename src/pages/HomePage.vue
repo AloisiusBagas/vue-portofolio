@@ -1,6 +1,6 @@
 <template>
   <main :class="theme">
-    <NavbarSection :sections="sections" :handleSwitchMode="toggleTheme" />
+    <NavbarSection :sections="sections" :handleSwitchMode="toggleTheme" :isDarkMode="theme === 'dark'" />
     <template v-for="section in sections" :key="section.id">
       <section :id="section.id" :aria-label="section.label || section.id">
         <component :is="section.component" />
