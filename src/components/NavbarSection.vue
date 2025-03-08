@@ -1,36 +1,70 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top" :class="{ hidden: !showNavbar }">
-    <a class="navbar-brand-web" href="#">MyApp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" @click="toggleMenu">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top"
+    :class="{ hidden: !showNavbar }"
+  >
+    <a class="navbar-brand-web" href="#">
+      <img src="/MyName.png" alt="MyApp Logo" class="navbar-logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      @click="toggleMenu"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse w-100" id="navbarNav" :class="{ 'menu-open': menuOpen }">
       <ul class="navbar-nav">
-        <li class="nav-item" v-for="section in sections" :key="section.id" :class="{ active: isActive(section.id) }"
-          @click="setActiveSection(section.id)">
+        <li
+          class="nav-item"
+          v-for="section in sections"
+          :key="section.id"
+          :class="{ active: isActive(section.id) }"
+          @click="setActiveSection(section.id)"
+        >
           <a class="nav-link text-center" :href="'#' + section.id" v-if="section.label">{{
             section.label
-            }}</a>
+          }}</a>
         </li>
         <li class="nav-item align-items-center d-flex toggle-switch-mobile">
           <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
           <div class="ms-2 form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
-              @click="handleSwitchMode($event)" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="themingSwitcher"
+              :checked="isDarkMode"
+              @click="handleSwitchMode($event)"
+            />
           </div>
-          <i class="fa-solid fa-moon" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+          <i
+            class="fa-solid fa-moon"
+            :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"
+          ></i>
         </li>
-        <a class="navbar-brand-mobile" href="#">MyApp</a>
+        <a class="navbar-brand-mobile" href="#">
+          <img src="/MyName.png" alt="MyApp Logo" class="navbar-logo" />
+        </a>
       </ul>
     </div>
     <li class="nav-item align-items-center d-flex toggle-switch-web">
       <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
       <div class="ms-2 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
-          @click="handleSwitchMode($event)" />
+        <input
+          class="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="themingSwitcher"
+          @click="handleSwitchMode($event)"
+        />
       </div>
-      <i class="fa-solid fa-moon" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+      <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
     </li>
   </nav>
 </template>
@@ -235,7 +269,7 @@ onBeforeUnmount(() => {
 }
 
 .form-check-input:checked {
-  background-color: #ff9800;
+  background-color: #151419;
   /* Background when on */
 }
 
@@ -244,6 +278,6 @@ onBeforeUnmount(() => {
 }
 
 .icon-on {
-  color: #ff9800;
+  color: #ffb727;
 }
 </style>
