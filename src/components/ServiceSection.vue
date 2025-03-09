@@ -8,7 +8,6 @@
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
           :style="{ backgroundImage: `url(${service.backgroundImage})` }"
           data-aos="zoom-in-down"
-          :data-aos-delay="index * 100"
         >
           <div class="overlay"></div>
           <!-- Dark overlay on background -->

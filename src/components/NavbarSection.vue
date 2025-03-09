@@ -70,8 +70,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, Component } from 'vue'
-import { PropType } from 'vue'
+import { ref, onMounted, onBeforeUnmount, type Component } from 'vue'
+import type { PropType } from 'vue'
 
 const props = defineProps({
   sections: {

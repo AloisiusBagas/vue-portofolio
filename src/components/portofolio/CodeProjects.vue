@@ -23,7 +23,11 @@
   <!-- Portfolio Items -->
   <div v-else class="row g-4">
     <div v-for="item in mappedItems" :key="item.id" class="col-12 col-md-6">
-      <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="zoom-in" data-aos-delay="200">
+      <div
+        class="card mb-3 h-100 custom-card d-flex flex-row"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
         <div class="green-container" :class="getLanguageClass(item.language)"></div>
         <div class="flex-grow-1">
           <div class="card-body">
@@ -31,8 +35,11 @@
               <h5 class="card-title text-link" @click="openLinkInNewTab(item.url)">
                 {{ item.name }}
               </h5>
-              <i class="fa-solid fa-up-right-from-square" style="cursor: pointer"
-                @click="openLinkInNewTab(item.url)"></i>
+              <i
+                class="fa-solid fa-up-right-from-square"
+                style="cursor: pointer"
+                @click="openLinkInNewTab(item.url)"
+              ></i>
             </div>
             <p class="card-text">
               {{ item.description }}
@@ -40,8 +47,14 @@
             <div class="d-flex flex-row justify-content-around">
               <div>
                 <p class="card-text">
-                  <img v-if="getLanguageIcon(item.language)" :src="getLanguageIcon(item.language)" :alt="item.language"
-                    width="20" height="20" class="me-2" />
+                  <img
+                    v-if="getLanguageIcon(item.language)"
+                    :src="getLanguageIcon(item.language)"
+                    :alt="item.language"
+                    width="20"
+                    height="20"
+                    class="me-2"
+                  />
                   <i>{{ item.language }}</i>
                 </p>
               </div>
@@ -74,7 +87,7 @@ export default defineComponent({
       }
     })
 
-    const openLinkInNewTab = (url) => {
+    const openLinkInNewTab = (url: string) => {
       if (url) {
         window.open(url, '_blank', 'noopener,noreferrer')
       } else {

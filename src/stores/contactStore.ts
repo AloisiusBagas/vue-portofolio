@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import axiosInstance from '../services/axios.ts'
-import { EmailModel } from '../models/emailModel.ts'
+import axiosInstance from '../services/axios'
+import { EmailModel } from '../models/emailModel'
 
 interface PortofolioState {
   items: any[]
