@@ -4,7 +4,25 @@
       <HeaderText text="My Resume" />
 
       <div class="row">
-        <div class="col-lg-6" data-aos="fade-right">
+        <div
+          class="col-lg-6 order-1 order-md-1 order-lg-2"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        >
+          <h3 class="resume-title">Professional Experience</h3>
+          <div v-for="(job, index) in experience" :key="index" class="resume-item">
+            <h4>{{ job.title }}</h4>
+            <h5>{{ job.years }}</h5>
+            <p>
+              <em>{{ job.company }}</em>
+            </p>
+            <ul>
+              <li v-for="(task, idx) in job.tasks" :key="idx" v-html="task"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 order-2 order-md-2 order-lg-1" data-aos="fade-right">
           <h3 class="resume-title">Education</h3>
           <div v-for="(edu, index) in education" :key="index" class="resume-item">
             <h4>{{ edu.degree }}</h4>
@@ -38,20 +56,6 @@
             </p>
             <ul>
               <li v-for="(desc, idx) in exp.description" :key="idx">{{ desc }}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="300">
-          <h3 class="resume-title">Professional Experience</h3>
-          <div v-for="(job, index) in experience" :key="index" class="resume-item">
-            <h4>{{ job.title }}</h4>
-            <h5>{{ job.years }}</h5>
-            <p>
-              <em>{{ job.company }}</em>
-            </p>
-            <ul>
-              <li v-for="(task, idx) in job.tasks" :key="idx" v-html="task"></li>
             </ul>
           </div>
         </div>
