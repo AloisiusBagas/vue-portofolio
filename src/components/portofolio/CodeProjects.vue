@@ -32,13 +32,13 @@
         <div class="flex-grow-1">
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title text-link" @click="openLinkInNewTab(item.url)">
+              <h5 class="card-title text-link" @click="openLinkInNewTab(item.htmlurl)">
                 {{ item.name }}
               </h5>
               <i
                 class="fa-solid fa-up-right-from-square"
                 style="cursor: pointer"
-                @click="openLinkInNewTab(item.url)"
+                @click="openLinkInNewTab(item.htmlurl)"
               ></i>
             </div>
             <p class="card-text">
@@ -134,7 +134,8 @@ export default defineComponent({
         stargazers_count: repo.stargazers_count,
         forks_count: repo.forks_count,
         createdAt: new Date(repo.created_at).toLocaleDateString(),
-        updatedAt: new Date(repo.updated_at).toLocaleDateString()
+        updatedAt: new Date(repo.updated_at).toLocaleDateString(),
+        htmlurl: repo.html_url
       }))
     })
 

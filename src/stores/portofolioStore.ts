@@ -45,7 +45,7 @@ export const usePortofolioStore = defineStore('PortofolioStore', {
       if (index !== -1) {
         modifiedData[index] = {
           ...modifiedData[index],
-          url: 'https://aloisiusbagas.github.io/',
+          html_url: 'https://aloisiusbagas.github.io/',
           language: 'Dart'
         }
       }

@@ -12,13 +12,7 @@
       </div>
 
       <!-- Portfolio Items with Swipe Gesture -->
-      <div
-        class="row portfolio-container"
-        @touchstart="startSwipe"
-        @touchend="endSwipe"
-        @mousedown="startSwipe"
-        @mouseup="endSwipe"
-      >
+      <div class="row portfolio-container">
         <div
           v-for="(item, index) in filteredPortfolio"
           :key="activeTab + '-' + index"
@@ -78,36 +72,6 @@ const handleKeydown = (event: KeyboardEvent) => {
 // Add & remove event listener for Esc key
 onMounted(() => window.addEventListener('keydown', handleKeydown))
 onUnmounted(() => window.removeEventListener('keydown', handleKeydown))
-
-// Swipe tracking
-let touchStartX = 0
-let touchEndX = 0
-
-// Handle swipe start
-const startSwipe = (event: TouchEvent | MouseEvent) => {
-  if ('touches' in event) {
-    touchStartX = event.touches[0].clientX // For touch
-  } else {
-    touchStartX = event.clientX // For mouse drag
-  }
-}
-
-// Handle swipe end
-const endSwipe = (event: TouchEvent | MouseEvent) => {
-  if ('changedTouches' in event) {
-    touchEndX = event.changedTouches[0].clientX // For touch
-  } else {
-    touchEndX = event.clientX // For mouse drag
-  }
-
-  const swipeDistance = touchEndX - touchStartX
-
-  if (swipeDistance < -50 && activeTab.value === 'posters') {
-    activeTab.value = 'instagram'
-  } else if (swipeDistance > 50 && activeTab.value === 'instagram') {
-    activeTab.value = 'posters'
-  }
-}
 
 // Portfolio items data
 const portfolioItems = [

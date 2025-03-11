@@ -4,7 +4,7 @@
       class="container d-flex flex-column justify-content-center align-items-center hero-container"
       data-aos="fade-up"
     >
-      <h2 style="color: #ffbd39">Hello! I am</h2>
+      <h2 class="headerText">Hello! I am</h2>
       <h1 class="text-center">Aloisius Bagas Wicaksono</h1>
       <div class="d-flex flex-row align-items-center">
         <h2 class="me-2 mb-0">I'm</h2>
@@ -33,10 +33,13 @@ import Typewriter from './Typewriter.vue'
 </script>
 
 <style scoped>
+.headerText {
+  color: var(--primary-orange-color) !important;
+}
 #hero {
   width: 100%;
   height: 100vh;
-  background: url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+  background: url('/images/hero-bg.jpg') no-repeat center center/cover;
   position: relative;
 }
 
@@ -82,7 +85,7 @@ import Typewriter from './Typewriter.vue'
 #hero h2 {
   font-family: 'Nunito Sans', sans-serif;
   color: #fff;
-  font-size: 1.6rem; /* Slightly smaller for better readability on smaller screens */
+  font-size: 1.6rem;
   font-weight: bold;
   margin: 0;
 }
@@ -118,7 +121,7 @@ import Typewriter from './Typewriter.vue'
 
 /* Hover State for Scroll Button */
 #hero .btn-scroll:hover {
-  color: #ffb727;
+  color: var(--primary-orange-color);
 }
 
 /* Keyframe for Button Animation */

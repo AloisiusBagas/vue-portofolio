@@ -222,7 +222,7 @@ onBeforeUnmount(() => {
   .menu-open {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
-    margin-top: 62px;
+    margin-top: 3.875rem;
   }
 
   .navbar-nav {

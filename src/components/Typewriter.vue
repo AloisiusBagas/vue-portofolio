@@ -89,13 +89,13 @@ export default {
 .typewriter {
   font-family: monospace;
   white-space: pre;
-  color: #ffbd39;
+  color: var(--primary-orange-color);
 }
 
 .cursor {
   display: inline-block;
   animation: blink 1s step-end infinite;
-  color: #ffbd39;
+  color: var(--primary-orange-color);
 }
 
 @keyframes blink {
