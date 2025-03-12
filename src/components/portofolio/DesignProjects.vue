@@ -121,8 +121,8 @@ const filteredPortfolio = computed(() => {
 }
 
 .portfolio-tabs button.active {
-  color: #ffc041;
-  border-bottom: 2px solid #ffc041;
+  color: var(--primary-orange-color);
+  border-bottom: 2px solid var(--primary-orange-color);
 }
 
 /* Portfolio */

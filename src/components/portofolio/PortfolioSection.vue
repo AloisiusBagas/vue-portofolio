@@ -58,7 +58,7 @@ const setFilter = (filter: string) => {
 
 .portfolio .filter-item:hover,
 .portfolio .filter-item.filter-active {
-  color: #f3a200;
+  color: var(--primary-orange-color);
 }
 
 .portfolio .portfolio-items {
