@@ -11,27 +11,27 @@ export default {
   props: {
     text: {
       type: Array,
-      required: true // Mengharuskan props text berupa array
+      required: true
     },
     speed: {
       type: Number,
-      default: 100 // Kecepatan dalam milidetik
+      default: 100
     },
     delayBetweenTexts: {
       type: Number,
-      default: 1000 // Jeda antara teks yang satu dan berikutnya
+      default: 1000
     },
     cursor: {
       type: Boolean,
-      default: true // Menampilkan kursor berkedip
+      default: true
     }
   },
   data() {
     return {
-      displayedText: '', // Teks yang ditampilkan secara bertahap
-      showCursor: true, // Untuk menampilkan kursor berkedip
-      typingInterval: null, // Interval untuk efek mesin ketik
-      textIndex: 0 // Indeks untuk mengatur teks mana yang sedang ditampilkan
+      displayedText: '',
+      showCursor: true,
+      typingInterval: null,
+      textIndex: 0
     }
   },
   mounted() {
