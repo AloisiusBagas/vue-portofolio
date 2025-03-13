@@ -1,8 +1,7 @@
 <template>
   <div class="typewriter-container">
     <div class="typewriter">
-      <span>{{ displayedText }}</span
-      ><span v-if="showCursor" class="cursor">|</span>
+      <span>{{ displayedText }}</span><span v-if="showCursor" class="cursor">|</span>
     </div>
   </div>
 </template>
@@ -82,27 +81,35 @@ export default {
 /* Flexbox container untuk menyelaraskan h2 dan Typewriter */
 .typewriter-container {
   display: flex;
-  align-items: start; /* Menyelaraskan h2 dan Typewriter secara vertikal */
-  justify-content: center; /* Menjaga elemen tetap berada di tengah secara horizontal */
+  align-items: start;
+  /* Menyelaraskan h2 dan Typewriter secara vertikal */
+  justify-content: center;
+  /* Menjaga elemen tetap berada di tengah secara horizontal */
 }
 
 .typewriter {
   font-family: monospace;
   white-space: pre;
   color: var(--primary-orange-color);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .cursor {
   display: inline-block;
   animation: blink 1s step-end infinite;
   color: var(--primary-orange-color);
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 @keyframes blink {
+
   from,
   to {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }

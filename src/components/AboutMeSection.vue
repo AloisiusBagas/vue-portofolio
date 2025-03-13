@@ -4,12 +4,7 @@
       <div class="row align-items-start">
         <!-- Image Section -->
         <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-left">
-          <img
-            src="/images/FotoWisuda.jpg"
-            alt="My Bio"
-            class="img-fluid rounded shadow"
-            style="max-width: 70%"
-          />
+          <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%" />
         </div>
 
         <!-- Bio and Skill Section -->
@@ -22,14 +17,8 @@
               <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
                 <div class="mb-1">{{ skill.name }}</div>
                 <div class="progress mb-3">
-                  <div
-                    class="progress-bar"
-                    role="progressbar"
-                    :style="{ width: skill.animatedLevel + '%' }"
-                    :aria-valuenow="skill.animatedLevel"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  >
+                  <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
+                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
                     {{ skill.animatedLevel }}%
                   </div>
                 </div>
@@ -37,9 +26,9 @@
             </div>
           </div>
           <h2>Hobbies</h2>
-          <div class="d-flex flex-row gap-5 justify-content-start mt-3">
+          <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start mt-3">
             <div v-for="(hobby, index) in hobbies" :key="index">
-              <div class="d-flex flex-column align-items-center bd-highlight mb-3">
+              <div class="d-flex flex-column align-items-center bd-highlight mb-3 hobby-item">
                 <div class="icon-wrapper">
                   <i :class="['icon', hobby.icon]"></i>
                 </div>
@@ -129,9 +118,15 @@ onMounted(() => {
   background-color: var(--primary-orange-color);
 }
 
+.hobby-item {
+  width: 90px;
+  /* Tetapkan lebar tetap */
+}
+
 .icon-wrapper {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +134,10 @@ onMounted(() => {
   border: 2px solid var(--primary-orange-color);
   background-color: transparent;
   transition: background-color 0.3s ease;
+  flex: 0 0 auto;
+  /* Hindari perubahan ukuran otomatis */
 }
+
 
 .icon {
   font-size: 20px;

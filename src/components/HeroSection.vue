@@ -1,24 +1,18 @@
 <template>
   <section id="hero" class="d-flex justify-content-center align-items-center">
-    <div
-      class="container d-flex flex-column justify-content-center align-items-center hero-container"
-      data-aos="fade-up"
-    >
+    <div class="container d-flex flex-column justify-content-center align-items-center hero-container"
+      data-aos="fade-up">
       <h2 class="headerText">Hello! I am</h2>
       <h1 class="text-center">Aloisius Bagas Wicaksono</h1>
       <div class="d-flex flex-row align-items-center">
         <h2 class="me-2 mb-0">I'm</h2>
 
-        <Typewriter
-          :text="[
-            'a software engineer',
-            'a Web Developer',
-            'a Mobile Developer',
-            'a Graphic Designer'
-          ]"
-          :speed="100"
-          :delayBetweenTexts="1500"
-        />
+        <Typewriter :text="[
+          'a software engineer',
+          'a Web Developer',
+          'a Mobile Developer',
+          'a Graphic Designer'
+        ]" :speed="100" :delayBetweenTexts="1500" />
       </div>
 
       <a href="#aboutme" class="btn-scroll scrollto mt-5" title="Scroll Down">
@@ -36,6 +30,7 @@ import Typewriter from './Typewriter.vue'
 .headerText {
   color: var(--primary-orange-color) !important;
 }
+
 #hero {
   width: 100%;
   height: 100vh;
@@ -50,8 +45,10 @@ import Typewriter from './Typewriter.vue'
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Apply the overlay */
-  z-index: 0; /* Make sure the overlay stays behind the content */
+  background: rgba(0, 0, 0, 0.5);
+  /* Apply the overlay */
+  z-index: 0;
+  /* Make sure the overlay stays behind the content */
 }
 
 .dark #hero:before {
@@ -59,8 +56,10 @@ import Typewriter from './Typewriter.vue'
 }
 
 #hero .hero-container {
-  position: relative; /* Ensure text and other content stay on top */
-  z-index: 1; /* Content should be on top of the overlay */
+  position: relative;
+  /* Ensure text and other content stay on top */
+  z-index: 1;
+  /* Content should be on top of the overlay */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +73,8 @@ import Typewriter from './Typewriter.vue'
 /* Hero Section Heading Styles */
 #hero h1 {
   font-family: 'Nunito Sans', sans-serif;
-  font-size: 3rem; /* Use rem for better scaling */
+  font-size: 3rem;
+  /* Use rem for better scaling */
   font-weight: bold;
   color: #fff;
   margin: 0;
@@ -103,7 +103,8 @@ import Typewriter from './Typewriter.vue'
 
 .typewriter-container span {
   font-size: 1.5rem;
-  font-weight: bold; /* Optional: add some emphasis to the typewriter text */
+  font-weight: bold;
+  /* Optional: add some emphasis to the typewriter text */
 }
 
 /* Scroll Button Styling */
@@ -111,12 +112,15 @@ import Typewriter from './Typewriter.vue'
   transition: 0.4s;
   color: rgba(255, 255, 255, 0.6);
   animation: up-down 1s ease-in-out infinite alternate-reverse both;
-  font-size: 2rem; /* Ensure button size is consistent */
-  margin-top: 30px; /* Add some spacing from content */
+  font-size: 2rem;
+  /* Ensure button size is consistent */
+  margin-top: 30px;
+  /* Add some spacing from content */
 }
 
 #hero .btn-scroll i {
-  font-size: 48px; /* Adjust size of the icon */
+  font-size: 48px;
+  /* Adjust size of the icon */
 }
 
 /* Hover State for Scroll Button */
@@ -129,8 +133,14 @@ import Typewriter from './Typewriter.vue'
   0% {
     transform: translateY(5px);
   }
+
   100% {
     transform: translateY(-5px);
   }
+}
+
+ss .text-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
