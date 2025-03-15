@@ -6,9 +6,7 @@
       <div v-for="(service, index) in listServices" :key="index">
         <div
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
-          :style="{ backgroundImage: `url(${service.backgroundImage})` }"
-          data-aos="zoom-in-down"
-        >
+          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="zoom-in-down">
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
           <img :src="service.iconPath" width="60" height="60" class="content" />
@@ -56,8 +54,8 @@ const listServices = [
 /* Basic Card Styling */
 .card {
   border-radius: 8px;
-  min-width: 420px;
-  min-height: 300px;
+  min-width: 21.875rem;
+  min-height: 14.375rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -107,7 +105,7 @@ const listServices = [
 
 /* Hover Title */
 .hover-title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   color: black;
   text-transform: uppercase;

@@ -25,17 +25,20 @@ defineProps({
 }
 
 .header-text {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .header-line {
   height: 4px;
-  border: none; /* Remove default border */
-  border-top: 4px solid var(--primary-orange-color); /* Stronger orange */
+  border: none;
+  /* Remove default border */
+  border-top: 4px solid var(--primary-orange-color);
+  /* Stronger orange */
   width: 100%;
   opacity: 1 !important;
-  margin: 8px auto; /* ✅ Center the HR */
+  margin: 8px auto;
+  /* ✅ Center the HR */
 }
 </style>

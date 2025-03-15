@@ -4,13 +4,8 @@
     <div class="container">
       <HeaderText text="Portofolio" data-aos="fade-up" />
       <ul class="filters d-flex justify-content-center" data-aos="zoom-in">
-        <li
-          v-for="(filter, index) in filters"
-          :key="index"
-          :class="{ 'filter-active': selectedFilter === filter }"
-          @click="setFilter(filter)"
-          class="filter-item"
-        >
+        <li v-for="(filter, index) in filters" :key="index" :class="{ 'filter-active': selectedFilter === filter }"
+          @click="setFilter(filter)" class="filter-item">
           {{ filter }}
         </li>
       </ul>
@@ -47,7 +42,7 @@ const setFilter = (filter: string) => {
   cursor: pointer;
   display: inline-block;
   margin: 0 10px 10px 10px;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
   padding: 20px;

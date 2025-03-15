@@ -4,11 +4,7 @@
       <HeaderText text="My Resume" />
 
       <div class="row">
-        <div
-          class="col-lg-6 order-1 order-md-1 order-lg-2"
-          data-aos="fade-right"
-          data-aos-delay="300"
-        >
+        <div class="col-lg-6 order-1 order-md-1 order-lg-2" data-aos="fade-right" data-aos-delay="300">
           <h3 class="resume-title">Professional Experience</h3>
           <div v-for="(job, index) in experience" :key="index" class="resume-item">
             <h4>{{ job.title }}</h4>
@@ -158,7 +154,7 @@ const experience = ref([
 
 <style scoped>
 .resume .resume-title {
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -174,7 +170,7 @@ const experience = ref([
 
 .resume .resume-item h4 {
   line-height: 18px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--primary-orange-color);
@@ -182,7 +178,7 @@ const experience = ref([
 }
 
 .resume .resume-item h5 {
-  font-size: 16px;
+  font-size: 1rem;
   background: #eef0f2;
   padding: 5px 15px;
   display: inline-block;
@@ -191,7 +187,7 @@ const experience = ref([
 }
 
 .dark .resume .resume-item h5 {
-  font-size: 16px;
+  font-size: 1rem;
   background: var(--Secondary-background-color);
   padding: 5px 15px;
   display: inline-block;

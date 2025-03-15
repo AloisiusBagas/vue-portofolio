@@ -119,7 +119,7 @@ import Typewriter from './Typewriter.vue'
 }
 
 #hero .btn-scroll i {
-  font-size: 48px;
+  font-size: 3rem;
   /* Adjust size of the icon */
 }
 

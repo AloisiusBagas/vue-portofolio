@@ -13,13 +13,8 @@
 
       <!-- Portfolio Items with Swipe Gesture -->
       <div class="row portfolio-container">
-        <div
-          v-for="(item, index) in filteredPortfolio"
-          :key="activeTab + '-' + index"
-          class="col-lg-4 col-md-6 portfolio-item"
-          data-aos="zoom-in"
-          data-aos-delay="200"
-        >
+        <div v-for="(item, index) in filteredPortfolio" :key="activeTab + '-' + index"
+          class="col-lg-4 col-md-6 portfolio-item" data-aos="zoom-in" data-aos-delay="200">
           <div class="portfolio-img">
             <img :src="item.image" class="img-fluid" :alt="item.title" />
           </div>
@@ -112,7 +107,7 @@ const filteredPortfolio = computed(() => {
 .portfolio-tabs button {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 1.rem;
   font-weight: bold;
   padding: 10px 20px;
   cursor: pointer;
@@ -152,7 +147,7 @@ const filteredPortfolio = computed(() => {
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 18px;
+  font-size: 1rem;
   color: #fff;
   font-weight: 600;
   margin-bottom: 0;
@@ -190,7 +185,7 @@ const filteredPortfolio = computed(() => {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 30px;
+  font-size: 2rem;
   background: none;
   border: none;
   color: white;
