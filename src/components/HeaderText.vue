@@ -25,7 +25,7 @@ defineProps({
 }
 
 .header-text {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
 }
