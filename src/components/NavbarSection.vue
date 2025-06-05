@@ -130,8 +130,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('scroll', debouncedUpdateActiveSection)
-  document.addEventListener('click', handleClickOutside);
-
+  document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
