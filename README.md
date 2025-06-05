@@ -20,6 +20,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
+> **Note** The unit tests depend on packages installed by the above command. Run it before `npm run test:unit` or other scripts.
+
 ### Compile and Hot-Reload for Development
 
 ```sh
