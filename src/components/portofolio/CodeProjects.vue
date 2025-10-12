@@ -64,6 +64,7 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from 'vue'
 import { usePortofolioStore } from '../../stores/portofolioStore'
+import type { GitHubRepository } from '../../stores/portofolioStore'
 
 export default defineComponent({
   setup() {
@@ -74,14 +75,14 @@ export default defineComponent({
       }
     })
 
-    const openLinkInNewTab = (url: string) => {
+    const openLinkInNewTab = (url: string | null | undefined) => {
       if (url) {
         window.open(url, '_blank', 'noopener,noreferrer')
       } else {
         console.warn('No URL provided')
       }
     }
-    const getLanguageClass = (language: string) => {
+    const getLanguageClass = (language: string | null) => {
       switch (language?.toLowerCase()) {
         case 'java':
           return 'language-java'
@@ -94,7 +95,7 @@ export default defineComponent({
       }
     }
 
-    const getLanguageIcon = (language: string) => {
+    const getLanguageIcon = (language: string | null) => {
       switch (language?.toLowerCase()) {
         case 'java':
           return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
@@ -112,18 +113,23 @@ export default defineComponent({
     }
 
     const mappedItems = computed(() => {
-      return portofolioStore.items.map((repo) => ({
-        id: repo.id,
-        name: repo.name,
-        description: repo.description || 'No description provided',
-        url: repo.url,
-        language: repo.language || 'Unknown',
-        stargazers_count: repo.stargazers_count,
-        forks_count: repo.forks_count,
-        createdAt: new Date(repo.created_at).toLocaleDateString(),
-        updatedAt: new Date(repo.updated_at).toLocaleDateString(),
-        htmlurl: repo.html_url
-      }))
+      return portofolioStore.items.map((repo: GitHubRepository) => {
+        const createdAt = repo.created_at ? new Date(repo.created_at).toLocaleDateString() : ''
+        const updatedAt = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : ''
+
+        return {
+          id: repo.id,
+          name: repo.name,
+          description: repo.description || 'No description provided',
+          url: repo.url,
+          language: repo.language || 'Unknown',
+          stargazers_count: repo.stargazers_count,
+          forks_count: repo.forks_count,
+          createdAt,
+          updatedAt,
+          htmlurl: repo.html_url
+        }
+      })
     })
 
     return {

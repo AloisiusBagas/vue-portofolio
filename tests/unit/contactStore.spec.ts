@@ -1,12 +1,17 @@
 import { setActivePinia, createPinia } from 'pinia'
 import { describe, it, expect, beforeEach, vi } from 'vitest'
+import type { Mock } from 'vitest'
 import { useContactStore } from '@/stores/contactStore'
 import axiosInstance from '@/services/axios'
 import { EmailModel } from '@/models/emailModel'
 
-vi.mock('@/services/axios')
+vi.mock('@/services/axios', () => ({
+  default: {
+    post: vi.fn()
+  }
+}))
 
-const mockedPost = axiosInstance.post as any
+const mockedPost = axiosInstance.post as Mock
 
 describe('useContactStore', () => {
   beforeEach(() => {

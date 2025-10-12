@@ -59,11 +59,17 @@ const props = defineProps({
 })
 const { sections } = props
 
-const debounce = (func: Function, delay: number) => {
-  let timeout: number
-  return (...args: any[]) => {
-    clearTimeout(timeout)
-    timeout = window.setTimeout(() => func(...args), delay)
+const debounce = <Args extends unknown[]>(func: (...args: Args) => void, delay: number) => {
+  let timeout: ReturnType<typeof window.setTimeout> | undefined
+
+  return (...args: Args) => {
+    if (timeout !== undefined) {
+      window.clearTimeout(timeout)
+    }
+
+    timeout = window.setTimeout(() => {
+      func(...args)
+    }, delay)
   }
 }
 
@@ -114,16 +120,18 @@ const toggleMenu = () => {
 
 const debouncedUpdateActiveSection = debounce(updateActiveSection, 50)
 const handleClickOutside = (event: MouseEvent) => {
-  const navbar = document.querySelector('.navbar') as HTMLElement;
-  if (navbar && !navbar.contains(event.target as Node)) {
-    showNavbar.value = false;
+  const navbar = document.querySelector('.navbar')
+  const target = event.target
+
+  if (navbar instanceof HTMLElement && target instanceof Node && !navbar.contains(target)) {
+    showNavbar.value = false
     menuOpen.value = false
   }
-};
+}
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
   window.addEventListener('scroll', debouncedUpdateActiveSection)
-  document.addEventListener('click', handleClickOutside);
+  document.addEventListener('click', handleClickOutside)
   updateActiveSection()
 })
 

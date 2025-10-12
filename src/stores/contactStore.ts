@@ -1,16 +1,17 @@
+import { isAxiosError } from 'axios'
 import { defineStore } from 'pinia'
 import axiosInstance from '../services/axios'
-import { EmailModel } from '../models/emailModel'
+import type { EmailModel } from '../models/emailModel'
 
-interface PortofolioState {
-  items: any[]
+interface ContactState {
+  items: Record<string, unknown> | null
   loading: boolean
   error: string | null
 }
 
 export const useContactStore = defineStore('contactStore', {
-  state: (): PortofolioState => ({
-    items: [],
+  state: (): ContactState => ({
+    items: null,
     loading: false,
     error: null
   }),
@@ -37,15 +38,22 @@ export const useContactStore = defineStore('contactStore', {
       }
 
       try {
-        const response = await axiosInstance.post(
+        const response = await axiosInstance.post<Record<string, unknown>>(
           'https://api.emailjs.com/api/v1.0/email/send',
           body,
           { headers }
         )
         this.items = response.data
         return true
-      } catch (error: any) {
-        this.error = error.message || 'An error occurred while sending the email.'
+      } catch (error: unknown) {
+        if (isAxiosError(error)) {
+          this.error = error.message || 'An error occurred while sending the email.'
+        } else if (error instanceof Error) {
+          this.error = error.message
+        } else {
+          this.error = 'An unexpected error occurred while sending the email.'
+        }
+
         return false
       } finally {
         this.loading = false

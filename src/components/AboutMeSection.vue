@@ -93,7 +93,9 @@ onMounted(() => {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      if (entries[0].isIntersecting) {
+      const [entry] = entries
+
+      if (entry?.isIntersecting) {
         animateSkills()
         observer.disconnect() // Ensures animation runs only once
       }
@@ -101,7 +103,10 @@ onMounted(() => {
     { threshold: 0.3 }
   )
 
-  observer.observe(document.querySelector('#aboutme') as Element)
+  const target = document.querySelector('#aboutme')
+  if (target instanceof Element) {
+    observer.observe(target)
+  }
 })
 </script>
 
