@@ -6,75 +6,149 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    text: {
-      type: Array,
-      required: true
-    },
-    speed: {
-      type: Number,
-      default: 100
-    },
-    delayBetweenTexts: {
-      type: Number,
-      default: 1000
-    },
-    cursor: {
-      type: Boolean,
-      default: true
-    }
-  },
-  data() {
-    return {
-      displayedText: '',
-      showCursor: true,
-      typingInterval: null,
-      textIndex: 0
-    }
-  },
-  mounted() {
-    this.startTyping()
-    if (this.cursor) {
-      this.blinkCursor()
-    }
-  },
-  methods: {
-    startTyping() {
-      this.typeWriterEffect()
-    },
-    typeWriterEffect() {
-      let charIndex = 0
-      const currentText = this.text[this.textIndex] // Ambil teks dari array berdasarkan indeks
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
-      this.typingInterval = setInterval(() => {
-        if (charIndex < currentText.length) {
-          this.displayedText += currentText.charAt(charIndex)
-          charIndex++
-        } else {
-          clearInterval(this.typingInterval)
-          this.moveToNextText() // Pindah ke teks berikutnya
-        }
-      }, this.speed)
-    },
-    moveToNextText() {
-      setTimeout(() => {
-        this.textIndex = (this.textIndex + 1) % this.text.length // Siklus ulang jika sudah di akhir
-        this.displayedText = '' // Reset teks yang ditampilkan
-        this.typeWriterEffect() // Mulai efek mesin ketik untuk teks berikutnya
-      }, this.delayBetweenTexts)
-    },
-    blinkCursor() {
-      setInterval(() => {
-        this.showCursor = !this.showCursor
-      }, 500) // Kecepatan berkedip kursor
-    }
-  },
-  beforeUnmount() {
-    clearInterval(this.typingInterval)
+defineOptions({
+  name: 'TypewriterDisplay'
+})
+
+const props = withDefaults(
+  defineProps<{
+    text: string[]
+    speed?: number
+    delayBetweenTexts?: number
+    cursor?: boolean
+  }>(),
+  {
+    speed: 100,
+    delayBetweenTexts: 1000,
+    cursor: true
+  }
+)
+
+const displayedText = ref('')
+const showCursor = ref(true)
+const textIndex = ref(0)
+
+let typingInterval: ReturnType<typeof window.setInterval> | undefined
+let nextTextTimeout: ReturnType<typeof window.setTimeout> | undefined
+let cursorInterval: ReturnType<typeof window.setInterval> | undefined
+
+const clearTimers = () => {
+  if (typingInterval !== undefined) {
+    window.clearInterval(typingInterval)
+    typingInterval = undefined
+  }
+
+  if (nextTextTimeout !== undefined) {
+    window.clearTimeout(nextTextTimeout)
+    nextTextTimeout = undefined
+  }
+
+  if (cursorInterval !== undefined) {
+    window.clearInterval(cursorInterval)
+    cursorInterval = undefined
   }
 }
+
+const scheduleNextText = () => {
+  if (props.text.length === 0) {
+    return
+  }
+
+  nextTextTimeout = window.setTimeout(() => {
+    textIndex.value = (textIndex.value + 1) % props.text.length
+    displayedText.value = ''
+    typeWriterEffect()
+  }, props.delayBetweenTexts)
+}
+
+const typeWriterEffect = () => {
+  const texts = props.text
+
+  if (texts.length === 0) {
+    displayedText.value = ''
+    return
+  }
+
+  const currentText = texts[textIndex.value] ?? ''
+  let charIndex = 0
+
+  typingInterval = window.setInterval(() => {
+    if (charIndex < currentText.length) {
+      displayedText.value += currentText.charAt(charIndex)
+      charIndex += 1
+      return
+    }
+
+    if (typingInterval !== undefined) {
+      window.clearInterval(typingInterval)
+      typingInterval = undefined
+    }
+
+    scheduleNextText()
+  }, props.speed)
+}
+
+const startTyping = () => {
+  displayedText.value = ''
+  textIndex.value = 0
+  typeWriterEffect()
+}
+
+const startCursorBlink = () => {
+  cursorInterval = window.setInterval(() => {
+    showCursor.value = !showCursor.value
+  }, 500)
+}
+
+onMounted(() => {
+  startTyping()
+
+  if (props.cursor) {
+    startCursorBlink()
+  } else {
+    showCursor.value = false
+  }
+})
+
+watch(
+  () => props.cursor,
+  (enabled) => {
+    if (enabled) {
+      showCursor.value = true
+
+      if (cursorInterval === undefined) {
+        startCursorBlink()
+      }
+
+      return
+    }
+
+    showCursor.value = false
+
+    if (cursorInterval !== undefined) {
+      window.clearInterval(cursorInterval)
+      cursorInterval = undefined
+    }
+  }
+)
+
+onBeforeUnmount(() => {
+  clearTimers()
+})
+
+watch(
+  () => props.text,
+  () => {
+    clearTimers()
+    displayedText.value = ''
+    textIndex.value = 0
+    typeWriterEffect()
+  },
+  { deep: true }
+)
 </script>
 
 <style scoped>

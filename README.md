@@ -22,6 +22,16 @@ npm install
 
 > **Note** The unit tests depend on packages installed by the above command. Run it before `npm run test:unit` or other scripts.
 
+## Testing Branch Availability
+
+A dedicated branch named `user-run` is available so you can experiment with the refreshed toolchain in isolation. After fetching the repository, check it out locally with:
+
+```sh
+git checkout user-run
+```
+
+From there you can install dependencies and run the usual scripts shown above. Push the branch to your remote once you have confirmed everything works in your environment.
+
 ### Compile and Hot-Reload for Development
 
 ```sh

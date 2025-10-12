@@ -1,11 +1,25 @@
+import { isAxiosError } from 'axios'
 import { defineStore } from 'pinia'
 import axiosInstance from '../services/axios'
-import { isAxiosError } from 'axios'
 
 export interface PortfolioState {
-  items: any[]
+  items: GitHubRepository[]
   loading: boolean
   error: string | null
+}
+
+export interface GitHubRepository {
+  id: number
+  html_url: string
+  language: string | null
+  stargazers_count: number
+  name: string
+  description: string | null
+  url: string
+  forks_count: number
+  created_at: string
+  updated_at: string
+  [key: string]: unknown
 }
 
 export const usePortofolioStore = defineStore('PortofolioStore', {
@@ -21,41 +35,49 @@ export const usePortofolioStore = defineStore('PortofolioStore', {
       this.error = null
 
       try {
-        const response = await axiosInstance.get('https://api.github.com/users/AloisiusBagas/repos')
+        const response = await axiosInstance.get<GitHubRepository[]>(
+          'https://api.github.com/users/AloisiusBagas/repos'
+        )
         this.items = this.modifyData(response.data)
-      } catch (error: any) {
+      } catch (error: unknown) {
         if (isAxiosError(error)) {
-          // Axios-specific error handling
           this.error =
             error.response?.data?.message || error.message || 'Failed to fetch data from GitHub.'
+        } else if (error instanceof Error) {
+          this.error = error.message
         } else {
-          // Generic error (non-Axios errors, like runtime errors)
-          this.error = error.message || 'An unknown error occurred while fetching items.'
+          this.error = 'An unknown error occurred while fetching items.'
         }
       } finally {
         this.loading = false
       }
     },
 
-    modifyData(data: any[]) {
+    modifyData(data: GitHubRepository[]) {
       const modifiedData = [...data]
 
       // Web Flutter project - set custom URL and language
       const index = modifiedData.findIndex((repo) => repo.id === 688294388)
       if (index !== -1) {
-        modifiedData[index] = {
-          ...modifiedData[index],
-          html_url: 'https://aloisiusbagas.github.io/',
-          language: 'Dart'
+        const repo = modifiedData[index]
+        if (repo) {
+          modifiedData[index] = {
+            ...repo,
+            html_url: 'https://aloisiusbagas.github.io/',
+            language: 'Dart'
+          }
         }
       }
 
       // Another project - change language to dotNet
       const index2 = modifiedData.findIndex((repo) => repo.id === 318070581)
       if (index2 !== -1) {
-        modifiedData[index2] = {
-          ...modifiedData[index2],
-          language: 'dotNet'
+        const repo = modifiedData[index2]
+        if (repo) {
+          modifiedData[index2] = {
+            ...repo,
+            language: 'dotNet'
+          }
         }
       }
 
