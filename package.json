@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.1.0",
+    "@vercel/analytics": "^1.6.1",
     "@vue/devtools-shared": "^7.7.7",
     "aos": "^2.3.4",
     "axios": "^1.12.2",

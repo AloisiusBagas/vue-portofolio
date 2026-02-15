@@ -11,10 +11,12 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import 'aos/dist/aos.css'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
+import { inject } from "@vercel/analytics"
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 app.use(VueSweetalert2)
-
+inject()
 app.mount('#app')
