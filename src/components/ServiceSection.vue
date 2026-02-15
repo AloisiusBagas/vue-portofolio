@@ -53,6 +53,8 @@ const listServices = [
 
 /* Basic Card Styling */
 .card {
+  --bs-card-bg: transparent;
+  border: none;
   border-radius: 8px;
   min-width: 21.875rem;
   min-height: 14.375rem;
