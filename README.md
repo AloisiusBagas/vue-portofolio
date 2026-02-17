@@ -1,57 +1,103 @@
-# my-portofolio
+# Vue 3 Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, responsive personal portfolio website built with **Vue 3** and **TypeScript**. This project showcases a clean design with smooth animations, dark mode support, and a modular architecture.
 
-## Recommended IDE Setup
+## 📸 Screenshots
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+|                     Hero Section                      |                        About Me                         |
+| :---------------------------------------------------: | :-----------------------------------------------------: |
+| ![Hero Section](./public/images/screenshots/Hero.PNG) | ![About Me](./public/images/screenshots/About%20Me.PNG) |
 
-## Type Support for `.vue` Imports in TS
+|                        Portfolio                         |                         Resume                         |
+| :------------------------------------------------------: | :----------------------------------------------------: |
+| ![Portfolio](./public/images/screenshots/portofolio.PNG) | ![Resume](./public/images/screenshots/My%20Resume.PNG) |
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## ✨ Features
 
-## Customize configuration
+- **⚡ Vue 3 & Vite**: Blazing fast development and build speeds.
+- **🛡️ TypeScript**: Type-safe code for better maintainability.
+- **🎨 Dynamic Theming**: Toggle between Dark and Light specific themes.
+- **📱 Fully Responsive**: Built with Bootstrap 5 for grid layouts and mobile compatibility.
+- **✨ Smooth Animations**: Integrated AOS (Animate On Scroll) for engaging element entrances.
+- **🚀 Lazy Loading**: Components are lazy-loaded to optimize initial load time.
+- **🧩 Modular Architecture**: Clean file structure with separated components and pages.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 🛠️ Tech Stack
 
-## Project Setup
+- **Framework**: [Vue 3](https://vuejs.org/) (Composition API)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **State Management**: [Pinia](https://pinia.vuejs.org/)
+- **Styling**: [Bootstrap 5](https://getbootstrap.com/), CSS3
+- **Routing**: [Vue Router 4](https://router.vuejs.org/)
+- **Icons**: [Boxicons](https://boxicons.com/), FontAwesome
+- **Animations**: [AOS](https://michalsnik.github.io/aos/)
 
-```sh
-npm install
-```
+## 🚀 Getting Started
 
-> **Note** The unit tests depend on packages installed by the above command. Run it before `npm run test:unit` or other scripts.
+Follow these instructions to get the project up and running on your local machine.
 
-## Testing Branch Availability
+### Prerequisites
 
-A dedicated branch named `user-run` is available so you can experiment with the refreshed toolchain in isolation. After fetching the repository, check it out locally with:
+- **Node.js**: version 18.0 or higher recommended.
+- **npm**: usually comes with Node.js.
 
-```sh
-git checkout user-run
-```
+### Installation
 
-From there you can install dependencies and run the usual scripts shown above. Push the branch to your remote once you have confirmed everything works in your environment.
+1.  **Clone the repository**:
 
-### Compile and Hot-Reload for Development
+    ```sh
+    git clone https://github.com/AloisiusBagas/vue-portofolio.git
+    cd vue-portofolio
+    ```
+
+2.  **Install dependencies**:
+    ```sh
+    npm install
+    ```
+
+### Running the Application
+
+Start the development server with hot-reload:
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Open your browser and navigate to `http://localhost:5173` (or the port shown in your terminal).
+
+### Building for Production
+
+Type-check, compile, and minify for production:
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+To preview the production build locally:
 
 ```sh
-npm run test:unit
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Linting and Formatting
+
+Run the linter to fix coding style issues:
 
 ```sh
 npm run lint
+```
+
+Format code with Prettier:
+
+```sh
+npm run format
+```
+
+## 🧪 Running Tests
+
+Run unit tests with [Vitest](https://vitest.dev/):
+
+```sh
+npm run test:unit
 ```
