@@ -1,92 +1,83 @@
 <template>
-  <!-- Loading Spinner -->
-  <div v-if="loading" class="d-flex justify-content-center align-items-center py-5">
-    <div class="spinner-border text-primary" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-  </div>
-
-  <!-- Error Message -->
-  <div v-else-if="error" class="alert alert-danger text-center" role="alert">
-    <div class="d-flex flex-column align-items-center justify-content-center gap-2">
-      <i class="fa-solid fa-triangle-exclamation"></i>
-      {{ error }}
-    </div>
-    <button type="button" class="btn btn-secondary mt-3" @click="portofolioStore.fetchItems">
-      <div class="d-flex gap-2 align-items-center">
-        <i class="col fa-solid fa-arrow-rotate-right"></i>
-        Refresh
-      </div>
-    </button>
-  </div>
-
   <!-- Portfolio Items -->
-  <div v-else class="row g-4">
-    <div v-for="item in mappedItems" :key="item.id" class="col-12 col-md-6">
+  <div class="row g-4">
+    <div v-for="item in paginatedItems" :key="item.id" class="col-12 col-md-6">
       <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="zoom-in" data-aos-delay="200">
         <div class="green-container" :class="getLanguageClass(item.language)"></div>
         <div class="flex-grow-1">
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title text-link" @click="openLinkInNewTab(item.htmlurl)">
-                {{ item.name }}
+              <h5 class="card-title text-link" @click="goToDetail(item.id)">
+                {{ item.title }}
               </h5>
               <i class="fa-solid fa-up-right-from-square" style="cursor: pointer"
-                @click="openLinkInNewTab(item.htmlurl)"></i>
+                @click="goToDetail(item.id)"></i>
             </div>
-            <p class="card-text">
-              {{ item.description }}
+            <p class="card-text mb-3">
+              {{ item.subtitle }}
             </p>
-            <div class="d-flex flex-row justify-content-around">
-              <div>
-                <p class="card-text">
-                  <img v-if="getLanguageIcon(item.language)" :src="getLanguageIcon(item.language)" :alt="item.language"
-                    width="20" height="20" class="me-2" />
-                  <i>{{ item.language }}</i>
-                </p>
-              </div>
-              <div class="d-flex align-items-center gap-1">
-                <i class="col fa-regular fa-star"></i>
-                <p class="col m-0">{{ item.stargazers_count }}</p>
-              </div>
-              <div class="d-flex align-items-center gap-1">
-                <i class="fa-solid fa-code-fork me-2"></i>
-                <p class="col m-0">{{ item.forks_count }}</p>
-              </div>
+            <div class="d-flex flex-wrap gap-2">
+              <span v-for="tag in item.tags" :key="tag" class="badge rounded-pill bg-light text-dark">
+                {{ tag }}
+              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Pagination -->
+  <nav v-if="totalPages > 1" class="mt-5 d-flex justify-content-center">
+    <ul class="pagination custom-pagination">
+      <li class="page-item" :class="{ disabled: currentPage === 1 }">
+        <button class="page-link" @click="currentPage--" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
+        <button class="page-link" @click="currentPage = page">{{ page }}</button>
+      </li>
+      <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+        <button class="page-link" @click="currentPage++" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted } from 'vue'
-import { usePortofolioStore } from '../../stores/portofolioStore'
-import type { GitHubRepository } from '../../stores/portofolioStore'
+import { computed, defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { projects } from '../../data/projects'
+import type { Project } from '../../data/projects'
 
 export default defineComponent({
   setup() {
-    const portofolioStore = usePortofolioStore()
-    onMounted(() => {
-      if (portofolioStore.items.length === 0) {
-        portofolioStore.fetchItems()
-      }
-    })
+    const router = useRouter()
+    const currentPage = ref(1)
+    const itemsPerPage = 4
+
+    const goToDetail = (id: string) => {
+      const routeData = router.resolve({ name: 'detail-portofolio', params: { id } })
+      window.open(routeData.href, '_blank')
+    }
 
     const openLinkInNewTab = (url: string | null | undefined) => {
-      if (url) {
+      if (url && url !== '#') {
         window.open(url, '_blank', 'noopener,noreferrer')
       } else {
-        console.warn('No URL provided')
+        console.warn('No URL provided or dummy link')
       }
     }
-    const getLanguageClass = (language: string | null) => {
+
+    const getLanguageClass = (language: string | undefined) => {
       switch (language?.toLowerCase()) {
         case 'java':
           return 'language-java'
         case 'dart':
+        case 'flutter':
           return 'language-dart'
         case 'dotnet':
           return 'language-dotNet'
@@ -95,51 +86,34 @@ export default defineComponent({
       }
     }
 
-    const getLanguageIcon = (language: string | null) => {
-      switch (language?.toLowerCase()) {
-        case 'java':
-          return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg'
-        case 'dart':
-          return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg'
-        case 'dotnet':
-          return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg'
-        case 'javascript':
-          return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'
-        case 'python':
-          return 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg'
-        default:
-          return '' // No icon
-      }
-    }
-
     const mappedItems = computed(() => {
-      return portofolioStore.items.map((repo: GitHubRepository) => {
-        const createdAt = repo.created_at ? new Date(repo.created_at).toLocaleDateString() : ''
-        const updatedAt = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : ''
-
+      return projects.map((project: Project) => {
         return {
-          id: repo.id,
-          name: repo.name,
-          description: repo.description || 'No description provided',
-          url: repo.url,
-          language: repo.language || 'Unknown',
-          stargazers_count: repo.stargazers_count,
-          forks_count: repo.forks_count,
-          createdAt,
-          updatedAt,
-          htmlurl: repo.html_url
+          id: project.id,
+          title: project.title,
+          subtitle: project.subtitle,
+          language: project.language || 'Unknown',
+          htmlurl: project.githubLink,
+          tags: project.tag
         }
       })
     })
 
+    const totalPages = computed(() => Math.ceil(mappedItems.value.length / itemsPerPage))
+
+    const paginatedItems = computed(() => {
+      const start = (currentPage.value - 1) * itemsPerPage
+      const end = start + itemsPerPage
+      return mappedItems.value.slice(start, end)
+    })
+
     return {
-      mappedItems,
-      loading: computed(() => portofolioStore.loading),
-      error: computed(() => portofolioStore.error),
+      paginatedItems,
+      totalPages,
+      currentPage,
       getLanguageClass,
-      getLanguageIcon,
       openLinkInNewTab,
-      portofolioStore
+      goToDetail
     }
   }
 })
@@ -194,10 +168,18 @@ export default defineComponent({
   background-color: #512bd4;
 }
 
+.text-link {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
 .language-default {
   background-color: green;
 }
-
 @media (max-width: 767.98px) {
   .h-10-sm {
     height: 15px !important;
@@ -209,5 +191,31 @@ export default defineComponent({
     width: 15px !important;
     height: 100%;
   }
+}
+
+.custom-pagination .page-link {
+  color: var(--text-color);
+  background-color: var(--Background-color);
+  border-color: var(--grey-color);
+  transition: all 0.3s ease;
+}
+
+.custom-pagination .page-item.active .page-link {
+  background-color: var(--primary-orange-color);
+  border-color: var(--primary-orange-color);
+  color: #fff;
+}
+
+.custom-pagination .page-link:hover {
+  background-color: var(--primary-orange-color);
+    border-color: var(--primary-orange-color);
+
+  color: #fff;
+}
+
+.custom-pagination .page-item.disabled .page-link {
+  background-color: var(--Background-color);
+  border-color: var(--grey-color);
+  opacity: 0.5;
 }
 </style>

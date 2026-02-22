@@ -13,7 +13,7 @@
 
       <!-- Portfolio Items with Swipe Gesture -->
       <div class="row portfolio-container">
-        <div v-for="(item, index) in filteredPortfolio" :key="activeTab + '-' + index"
+        <div v-for="(item, index) in paginatedDesignItems" :key="activeTab + '-' + index"
           class="col-lg-4 col-md-6 portfolio-item" data-aos="zoom-in" data-aos-delay="200">
           <div class="portfolio-img">
             <img :src="item.image" class="img-fluid" :alt="item.title" />
@@ -28,6 +28,25 @@
           </div>
         </div>
       </div>
+
+      <!-- Pagination -->
+      <nav v-if="totalPages > 1" class="mt-5 d-flex justify-content-center">
+        <ul class="pagination custom-pagination">
+          <li class="page-item" :class="{ disabled: currentPage === 1 }">
+            <button class="page-link" @click="currentPage--" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </button>
+          </li>
+          <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
+            <button class="page-link" @click="currentPage = page">{{ page }}</button>
+          </li>
+          <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+            <button class="page-link" @click="currentPage++" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
     </div>
 
     <!-- Fullscreen Image Modal -->
@@ -39,10 +58,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 
 // Active tab state
 const activeTab = ref('posters')
+const currentPage = ref(1)
+const itemsPerPage = 6
+
+// Reset page when tab changes
+watch(activeTab, () => {
+  currentPage.value = 1
+})
 
 // Fullscreen image state
 const fullscreenImage = ref<string | null>(null)
@@ -95,6 +121,14 @@ const portfolioItems = [
 // Filter portfolio based on active tab
 const filteredPortfolio = computed(() => {
   return portfolioItems.filter((item) => item.category === activeTab.value)
+})
+
+const totalPages = computed(() => Math.ceil(filteredPortfolio.value.length / itemsPerPage))
+
+const paginatedDesignItems = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  const end = start + itemsPerPage
+  return filteredPortfolio.value.slice(start, end)
 })
 </script>
 
@@ -190,5 +224,32 @@ const filteredPortfolio = computed(() => {
   border: none;
   color: white;
   cursor: pointer;
+}
+
+/* Pagination Styling */
+:deep(.custom-pagination .page-link) {
+  color: var(--text-color);
+  background-color: var(--Background-color);
+  border-color: var(--grey-color);
+  transition: all 0.3s ease;
+}
+
+:deep(.custom-pagination .page-item.active .page-link) {
+  background-color: var(--primary-orange-color);
+  border-color: var(--primary-orange-color);
+  color: #fff;
+}
+
+:deep(.custom-pagination .page-link:hover) {
+  background-color: var(--primary-orange-color);
+  border-color: var(--primary-orange-color);
+
+  color: #fff;
+}
+
+:deep(.custom-pagination .page-item.disabled .page-link) {
+  background-color: var(--Background-color);
+  border-color: var(--grey-color);
+  opacity: 0.5;
 }
 </style>
