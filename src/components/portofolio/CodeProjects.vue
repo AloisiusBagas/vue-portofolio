@@ -57,7 +57,7 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const currentPage = ref(1)
-    const itemsPerPage = 4
+    const itemsPerPage = 6
 
     const goToDetail = (id: string) => {
       const routeData = router.resolve({ name: 'detail-portofolio', params: { id } })

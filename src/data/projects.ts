@@ -130,8 +130,159 @@ export const projects: Project[] = [
     ],
     language: 'Flutter'
   },
-        //============== Covid 19 Tracker ===============
+          //============== React E-commerce Template ===============
 
+  {
+    id: 'react-ecommerce-template',
+    title: 'react-ecommerce-template',
+    subtitle: 'A modern e-commerce interface featuring a real-time cart, wishlist functionality, dynamic product filtering, and smooth animations using Radix UI and Framer Motion.',
+    description:
+      'This Modern E-commerce UI project is a feature-rich, responsive, and visually stunning frontend repository for an e-commerce platform. It focuses on providing a seamless shopping experience using modern web design patterns and smooth animations',
+    tag: [
+  'Web Development',
+  'Frontend',
+  'E-commerce',
+  'UI/UX',
+  'React',
+  'Tailwind CSS',
+  'Responsive Design',
+  'Radix UI'
+],
+    liveLink: 'https://react-ecommerce-template-three.vercel.app/',
+    githubLink: '',
+    heroImage: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg',
+    detailedTech: [
+      { name: 'React', icon: 'fa-solid fa-check-circle' },
+      { name: 'Tailwind CSS', icon: 'fa-solid fa-check-circle' },
+      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
+      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
+      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
+      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
+      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
+      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
+      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
+      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
+    ],
+    features: [
+  {
+    title: 'Modern & Clean Aesthetics',
+    desc: 'Crafted a stunning, accessible user interface utilizing Tailwind CSS and Radix UI primitives.',
+    icon: 'fa-solid fa-wand-magic-sparkles'
+  },
+  {
+    title: 'Responsive Architecture',
+    desc: 'Ensured a seamless shopping experience dynamically adapting across Desktop, Tablet, and Mobile devices.',
+    icon: 'fa-solid fa-mobile-screen-button'
+  },
+  {
+    title: 'Dynamic Micro-Interactions',
+    desc: 'Implemented smooth page transitions and interactive product animations powered by Framer Motion.',
+    icon: 'fa-solid fa-bolt' 
+  },
+  {
+    title: 'Advanced Product Filtering',
+    desc: 'Engineered a robust filtering system allowing users to sort products by category, price range, and custom options.',
+    icon: 'fa-solid fa-filter'
+  },
+  {
+    title: 'Real-Time Smart Cart',
+    desc: 'Built an intuitive cart management system providing instant visual feedback and seamless checkout preparation.',
+    icon: 'fa-solid fa-cart-shopping'
+  },
+  {
+    title: 'Wishlist Functionality',
+    desc: 'Created a personalized favorites system enabling users to save and track desired items for future purchase.',
+    icon: 'fa-solid fa-heart'
+  },
+  {
+    title: 'Rich Product Galleries',
+    desc: 'Developed comprehensive product detail views with interactive image galleries, color selection, and sizing options.',
+    icon: 'fa-solid fa-images' 
+  }
+],
+    gallery: [
+      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/Home_pc.png',
+      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/detail_pc.png',
+      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/cart_pc.png',
+      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/Cart_mobilview.png',
+      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/favourite_mobileview.png',
+
+    ],
+    language: 'ReactJs'
+  },
+          //============== Real Estate Landing Page ===============
+  {
+    id: 'real-estate-landing-page',
+    title: 'real-estate-landing-page',
+    subtitle: 'A Modern, Animated Real Estate Landing Page Built with React and Tailwind CSS.',
+    description:
+      'HOUSFY is a premium real estate landing page designed to showcase luxury properties. Built with React, Tailwind CSS, and Framer Motion, it delivers a seamless user experience with scroll-triggered animations, interactive property showcases, and an accessible, mobile-first design system powered by Radix UI.',
+    tag: [
+  'Web Development',
+  'Frontend',
+  'React',
+  'Tailwind CSS',
+  'UI/UX',
+  'Landing Page',
+  'Framer Motion',
+  'Radix UI',
+  'Real Estate'
+],
+    liveLink: 'https://real-estate-landing-9muawdt8e-aloisius-bagas-projects.vercel.app/',
+    githubLink: '',
+    heroImage: 'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg',
+    detailedTech: [
+      { name: 'React', icon: 'fa-solid fa-check-circle' },
+      { name: 'Tailwind CSS', icon: 'fa-solid fa-check-circle' },
+      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
+      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
+      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
+      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
+      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
+      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
+      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
+      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
+    ],
+    features: [
+  {
+    title: 'Interactive Property Showcase',
+    desc: 'Implemented a dynamic tabbed interface (Buy, Rent, Sold) with a smooth horizontal scrolling carousel for visually browsing property listings.',
+    icon: 'fa-solid fa-house-chimney-window'
+  },
+  {
+    title: 'Smooth Viewport Animations',
+    desc: 'Integrated Framer Motion to deliver an engaging experience with scroll-triggered fade-in and staggered appearance animations.',
+    icon: 'fa-solid fa-wand-magic-sparkles'
+  },
+  {
+    title: 'Complex Grid Orchestration',
+    desc: 'Engineered a modern, responsive grid layout for Featured Properties, highlighting a primary bento-style card alongside interactive hover states.',
+    icon: 'fa-solid fa-border-all'
+  },
+  {
+    title: 'Dynamic Transparent Navigation',
+    desc: 'Built a sleek, mobile-friendly sticky header that smoothly transitions from transparent to solid white upon user scrolling.',
+    icon: 'fa-regular fa-window-maximize'
+  },
+  {
+    title: 'Accessible UI Components',
+    desc: 'Utilized Radix UI primitives and Tailwind CSS to craft highly customized, accessible components like tabs, forms, and dialogs.',
+    icon: 'fa-solid fa-cubes'
+  },
+  {
+    title: 'Immersive Hero Section',
+    desc: 'Engages users immediately using a full-viewport background image combined with a floating abstract statistics card.',
+    icon: 'fa-solid fa-layer-group'
+  }
+],
+    gallery: [
+      'https://raw.githubusercontent.com/AloisiusBagas/real-estate-landing/main/public/Demo/hero.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/real-estate-landing/main/public/Demo/showcase.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/real-estate-landing/main/public/Demo/contact.PNG',
+    ],
+    language: 'ReactJs'
+  },
+        //============== Covid 19 Tracker ===============
   {
     id: 'covid19-indonesia',
     title: 'Covid19-Indonesia',
@@ -195,6 +346,7 @@ export const projects: Project[] = [
     ],
     language: 'Flutter'
   },
+          //============== My Note App ===============
   {
     id: 'my-note-app',
     title: 'My-Note-App',
@@ -250,84 +402,6 @@ export const projects: Project[] = [
       'https://raw.githubusercontent.com/AloisiusBagas/NoteApp/master/assets/Demo/Screenshot_1771689875.png',
       'https://raw.githubusercontent.com/AloisiusBagas/NoteApp/master/assets/Demo/Screenshot_1771690462.png',
       'https://raw.githubusercontent.com/AloisiusBagas/NoteApp/master/assets/Demo/Screenshot_1771774098.png'
-    ],
-    language: 'Flutter'
-  },
-  {
-    id: 'react-ecommerce-template',
-    title: 'react-ecommerce-template',
-    subtitle: 'A modern e-commerce interface featuring a real-time cart, wishlist functionality, dynamic product filtering, and smooth animations using Radix UI and Framer Motion.',
-    description:
-      'This Modern E-commerce UI project is a feature-rich, responsive, and visually stunning frontend repository for an e-commerce platform. It focuses on providing a seamless shopping experience using modern web design patterns and smooth animations',
-    tag: [
-  'Web Development',
-  'Frontend',
-  'E-commerce',
-  'UI/UX',
-  'React',
-  'Tailwind CSS',
-  'Responsive Design',
-  'Radix UI'
-],
-    liveLink: 'https://react-ecommerce-template-three.vercel.app/',
-    githubLink: 'https://github.com/AloisiusBagas/react-ecommerce-template',
-    heroImage: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg',
-    detailedTech: [
-      { name: 'React', icon: 'fa-solid fa-check-circle' },
-      { name: 'Tailwind CSS', icon: 'fa-solid fa-check-circle' },
-      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
-      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
-      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
-      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
-      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
-      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
-      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
-      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
-    ],
-    features: [
-  {
-    title: 'Modern & Clean Aesthetics',
-    desc: 'Crafted a stunning, accessible user interface utilizing Tailwind CSS and Radix UI primitives.',
-    icon: 'fa-solid fa-wand-magic-sparkles'
-  },
-  {
-    title: 'Responsive Architecture',
-    desc: 'Ensured a seamless shopping experience dynamically adapting across Desktop, Tablet, and Mobile devices.',
-    icon: 'fa-solid fa-mobile-screen-button'
-  },
-  {
-    title: 'Dynamic Micro-Interactions',
-    desc: 'Implemented smooth page transitions and interactive product animations powered by Framer Motion.',
-    icon: 'fa-solid fa-bolt' 
-  },
-  {
-    title: 'Advanced Product Filtering',
-    desc: 'Engineered a robust filtering system allowing users to sort products by category, price range, and custom options.',
-    icon: 'fa-solid fa-filter'
-  },
-  {
-    title: 'Real-Time Smart Cart',
-    desc: 'Built an intuitive cart management system providing instant visual feedback and seamless checkout preparation.',
-    icon: 'fa-solid fa-cart-shopping'
-  },
-  {
-    title: 'Wishlist Functionality',
-    desc: 'Created a personalized favorites system enabling users to save and track desired items for future purchase.',
-    icon: 'fa-solid fa-heart'
-  },
-  {
-    title: 'Rich Product Galleries',
-    desc: 'Developed comprehensive product detail views with interactive image galleries, color selection, and sizing options.',
-    icon: 'fa-solid fa-images' 
-  }
-],
-    gallery: [
-      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/Home_pc.png',
-      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/detail_pc.png',
-      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/cart_pc.png',
-      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/Cart_mobilview.png',
-      'https://raw.githubusercontent.com/AloisiusBagas/react-ecommerce-template/main/public/images/favourite_mobileview.png',
-
     ],
     language: 'Flutter'
   },
