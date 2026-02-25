@@ -20,7 +20,7 @@
           </div>
           <div class="portfolio-info">
             <div class="d-flex flex-row justify-content-between">
-              <h4>{{ item.title }}</h4>
+              <h3 class="h4">{{ item.title }}</h3>
               <a href="#" @click.prevent="openFullscreen(item.image)">
                 <i class="fa-solid fa-expand" style="color: white; cursor: pointer"></i>
               </a>

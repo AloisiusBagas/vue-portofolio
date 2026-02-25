@@ -9,8 +9,8 @@
         </p>
         <div class="d-flex flex-row gap-3">
           <div v-for="(media, index) in socialMedia" :key="index">
-            <a :href="media.path" target="_blank" rel="noopener noreferrer">
-              <i :class="['icon', media.icon]"></i>
+            <a :href="media.path" target="_blank" rel="noopener noreferrer" :aria-label="media.label">
+              <i :class="['icon', media.icon]" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -23,10 +23,10 @@
 import { ref } from 'vue'
 
 const socialMedia = ref([
-  { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/' },
-  { icon: 'fa-brands fa-square-github', path: 'https://github.com/AloisiusBagas' },
-  { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/AloisiusBagas' },
-  { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/aloisiusbagas_' }
+  { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/', label: 'LinkedIn Profile' },
+  { icon: 'fa-brands fa-square-github', path: 'https://github.com/AloisiusBagas', label: 'GitHub Profile' },
+  { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/AloisiusBagas', label: 'Behance Portfolio' },
+  { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/aloisiusbagas_', label: 'Instagram Profile' }
 ])
 </script>
 

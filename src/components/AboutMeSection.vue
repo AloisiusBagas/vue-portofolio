@@ -15,10 +15,11 @@
           <div class="my-3">
             <div class="row">
               <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
-                <div class="mb-1">{{ skill.name }}</div>
+                <div class="mb-1" :id="'skill-label-' + index">{{ skill.name }}</div>
                 <div class="progress mb-3">
                   <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
-                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
+                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100" 
+                    :aria-labelledby="'skill-label-' + index">
                     {{ skill.animatedLevel }}%
                   </div>
                 </div>

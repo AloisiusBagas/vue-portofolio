@@ -7,9 +7,9 @@
         <div class="flex-grow-1">
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title text-link" @click="goToDetail(item.id)">
+              <h3 class="h5 card-title text-link" @click="goToDetail(item.id)">
                 {{ item.title }}
-              </h5>
+              </h3>
               <i class="fa-solid fa-up-right-from-square" style="cursor: pointer"
                 @click="goToDetail(item.id)"></i>
             </div>

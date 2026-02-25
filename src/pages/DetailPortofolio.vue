@@ -40,7 +40,7 @@
             <p class="text-muted lh-lg" v-html="project.description" style="white-space: pre-line"></p>
           </div>
           <div class="col-lg-4 offset-lg-1">
-            <h5 class="fw-bold mb-3">Tech Stack</h5>
+            <h3 class="h5 fw-bold mb-3">Tech Stack</h3>
             <div class="d-flex flex-wrap gap-2">
               <div
                 v-for="tech in project.detailedTech"
@@ -65,7 +65,7 @@
               <div class="feature-icon-wrapper mb-3">
                 <i :class="feature.icon"></i>
               </div>
-              <h5 class="fw-bold">{{ feature.title }}</h5>
+              <h3 class="h5 fw-bold">{{ feature.title }}</h3>
               <p class="text-muted small mb-0">{{ feature.desc }}</p>
             </div>
           </div>
@@ -82,7 +82,7 @@
               <img :src="img" class="img-fluid" alt="Gallery Image" />
               <div class="portfolio-info">
                 <div class="d-flex flex-row justify-content-between align-items-center">
-                  <h4 class="mb-0 text-white fs-6">Project Image {{ index + 1 }}</h4>
+                  <h3 class="h4 mb-0 text-white fs-6">Project Image {{ index + 1 }}</h3>
                   <a href="#" @click.prevent="openFullscreen(img)">
                 <i class="fa-solid fa-expand" style="color: white; cursor: pointer"></i>
                   </a>

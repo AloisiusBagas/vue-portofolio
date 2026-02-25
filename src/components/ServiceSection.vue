@@ -29,17 +29,17 @@ const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.v
 
 const listServices = [
   {
-    backgroundImage: '/images/website.jpg',
+    backgroundImage: '/images/website.webp',
     iconPath: '/icon/globe.svg',
     title: 'Web Development'
   },
   {
-    backgroundImage: '/images/mobile.jpg',
+    backgroundImage: '/images/mobile.webp',
     iconPath: '/icon/mobile.svg',
     title: 'Mobile Development'
   },
   {
-    backgroundImage: '/images/design.jpg',
+    backgroundImage: '/images/design.webp',
     iconPath: '/icon/design.svg',
     title: 'Graphic Design'
   }

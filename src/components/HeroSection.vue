@@ -34,7 +34,7 @@ import Typewriter from './Typewriter.vue'
 #hero {
   width: 100%;
   height: 100vh;
-  background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+  background: url('/images/hero-bg.webp') no-repeat center center/cover;
   position: relative;
   background-attachment: fixed;
 }
