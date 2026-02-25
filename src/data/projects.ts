@@ -405,5 +405,76 @@ export const projects: Project[] = [
     ],
     language: 'Flutter'
   },
-  
+            //============== Web Portofolio Page ===============
+  {
+    id: 'web-portofolio',
+    title: 'Web Portofolio',
+    subtitle: 'A responsive personal portfolio website built with Vue 3, TypeScript, and Bootstrap. Features dark mode, smooth animations, and a clean modern design.',
+    description:
+      'A modern, fully responsive personal portfolio website designed to showcase my skills, projects, and professional background. Built from the ground up using Vue 3 (Composition API) and Vite for blazing-fast performance. This application leverages TypeScript for robust type safety and maintainable code. The design emphasizes a clean, intuitive user experience, integrating dynamic dark/light mode theming, smooth AOS scroll animations, and a well-structured modular architecture using component lazy-loading.',
+    tag: [
+      'Web Development',
+      'Frontend',
+      'Vue.js',
+      'Vue 3',
+      'TypeScript',
+      'Vite',
+      'Bootstrap 5',
+      'Portfolio',
+      'UI/UX',
+      'Responsive Design'
+    ],
+    liveLink: 'https://www.aloisiusbagas.com/',
+    githubLink: 'https://github.com/AloisiusBagas/vue-portofolio',
+    heroImage: 'https://images.pexels.com/photos/251225/pexels-photo-251225.jpeg',
+    detailedTech: [
+      { name: 'Vue.js', icon: 'fa-solid fa-check-circle' },
+      { name: 'Tailwind CSS', icon: 'fa-solid fa-check-circle' },
+      { name: 'Framer Motion', icon: 'fa-solid fa-check-circle' },
+      { name: 'Radix UI', icon: 'fa-solid fa-check-circle' },
+      { name: 'TypeScript', icon: 'fa-solid fa-check-circle' },
+      { name: 'Vercel', icon: 'fa-solid fa-check-circle' },
+    ],
+       features: [
+      {
+        title: 'Dynamic Theming',
+        desc: 'Implemented a seamless toggle between dark and light themes for an optimal viewing experience.',
+        icon: 'fa-solid fa-circle-half-stroke'
+      },
+      {
+        title: 'Smooth Scroll Animations',
+        desc: 'Integrated AOS (Animate On Scroll) to deliver engaging and staggered element entrances as users navigate.',
+        icon: 'fa-solid fa-wand-magic-sparkles'
+      },
+      {
+        title: 'Modular Architecture',
+        desc: 'Designed a clean, maintainable file structure utilizing lazy-loaded Vue components to optimize initial load times.',
+        icon: 'fa-solid fa-cubes'
+      },
+      {
+        title: 'Fully Responsive Layout',
+        desc: 'Leveraged Bootstrap 5 and custom CSS to ensure a flawless and intuitive experience across all mobile, tablet, and desktop screens.',
+        icon: 'fa-solid fa-mobile-screen'
+      },
+      {
+        title: 'Type-Safe Implementation',
+        desc: 'Utilized TypeScript throughout the application to enhance code quality, predictability, and long-term maintainability.',
+        icon: 'fa-solid fa-shield-halved'
+      },
+      {
+        title: 'Blazing Fast Performance',
+        desc: 'Powered by Vite as the build tool to provide rapid hot module replacement (HMR) during development and highly optimized production builds.',
+        icon: 'fa-solid fa-bolt'
+      }
+    ],
+    gallery: [
+      'https://raw.githubusercontent.com/AloisiusBagas/vue-portofolio/main/public/images/screenshots/Hero.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/vue-portofolio/main/public/images/screenshots/About Me.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/vue-portofolio/main/public/images/screenshots/My Resume.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/vue-portofolio/main/public/images/screenshots/portofolio.PNG',
+      'https://raw.githubusercontent.com/AloisiusBagas/vue-portofolio/main/public/images/screenshots/contactMe.PNG',
+
+    ],
+    language: 'VueJs'
+  },
 ];

@@ -12,6 +12,10 @@ A modern, responsive personal portfolio website built with **Vue 3** and **TypeS
 | :------------------------------------------------------: | :----------------------------------------------------: |
 | ![Portfolio](./public/images/screenshots/portofolio.PNG) | ![Resume](./public/images/screenshots/My%20Resume.PNG) |
 
+|                        Contact Me                        |     |
+| :------------------------------------------------------: | :-: |
+| ![Contact Me](./public/images/screenshots/contactMe.png) |     |
+
 ## ✨ Features
 
 - **⚡ Vue 3 & Vite**: Blazing fast development and build speeds.
