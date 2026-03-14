@@ -96,16 +96,16 @@ const loadingSubmit = computed(() => contactStore.loading)
 const contactInfo = [
   {
     label: 'Whatsapp',
-    value: '+62 821 1060 9902',
+    value: '+62 851 7445 2583',
     icon: 'fa-brands fa-whatsapp',
     action: () =>
-      window.open(`https://wa.me/6282110609902?text=Hello, saya ingin bertanya...`, '_blank')
+      window.open(`https://wa.me/6285174452583?text=Hello, saya ingin bertanya...`, '_blank')
   },
   {
     label: 'Phone Number',
-    value: '+62 821 1060 9902',
+    value: '+62 851 7445 2583',
     icon: 'fa-solid fa-phone',
-    action: () => (window.location.href = 'tel:+6282110609902')
+    action: () => (window.location.href = 'tel:+6285174452583')
   },
   {
     label: 'Email',
