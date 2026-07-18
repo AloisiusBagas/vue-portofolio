@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse w-100" id="navbarNav" :class="{ 'menu-open': menuOpen }">
       <ul class="navbar-nav">
         <li class="nav-item" v-for="section in sections" :key="section.id" :class="{ active: isActive(section.id) }"
-          @click="setActiveSection(section.id)">
+          @click.prevent="setActiveSection(section.id)">
           <a class="nav-link text-center" :href="'#' + section.id" v-if="section.label">{{
             section.label
           }}</a>
@@ -42,6 +42,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, type Component } from 'vue'
 import type { PropType } from 'vue'
+import { useLenis } from '../composables/useLenis'
 
 const props = defineProps({
   sections: {
@@ -87,7 +88,12 @@ const setActiveSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
 
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const lenis = useLenis()
+    if (lenis) {
+      lenis.scrollTo(element)
+    } else {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
   menuOpen.value = false // Close menu after selection (for mobile)
 }

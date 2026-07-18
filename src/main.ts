@@ -9,6 +9,7 @@ import 'bootstrap'
 import 'boxicons/css/boxicons.min.css'
 import '@fortawesome/fontawesome-free/css/all.css'
 import 'aos/dist/aos.css'
+import 'lenis/dist/lenis.css'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { inject } from "@vercel/analytics"
