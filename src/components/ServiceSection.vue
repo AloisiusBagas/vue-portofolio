@@ -10,7 +10,7 @@
           :data-aos-delay="index * 150">
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
-          <img :src="service.iconPath" width="60" height="60" class="content" />
+          <img :src="service.iconPath" width="60" height="60" class="content" :alt="service.title" />
           <p class="mt-2 content title">{{ service.title }}</p>
 
           <!-- Animated Box -->

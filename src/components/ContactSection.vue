@@ -30,6 +30,7 @@
               type="text"
               class="form-control"
               placeholder="Your Name"
+              aria-label="Your Name"
               required
             />
           </div>
@@ -39,6 +40,7 @@
               type="email"
               class="form-control"
               placeholder="Your Email"
+              aria-label="Your Email"
               required
             />
           </div>
@@ -48,6 +50,7 @@
               type="text"
               class="form-control"
               placeholder="Subject"
+              aria-label="Subject"
               required
             />
           </div>
@@ -57,6 +60,7 @@
               class="form-control"
               rows="6"
               placeholder="Message"
+              aria-label="Message"
               required
             ></textarea>
           </div>

@@ -1,7 +1,6 @@
 <template>
   <section id="hero" class="d-flex justify-content-center align-items-center">
-    <div class="container d-flex flex-column justify-content-center align-items-center hero-container"
-      data-aos="fade-up">
+    <div class="container d-flex flex-column justify-content-center align-items-center hero-container">
       <h2 class="headerText">Hello! I am</h2>
       <h1 class="text-center">Aloisius Bagas Wicaksono</h1>
       <div class="d-flex flex-row align-items-center">
@@ -60,6 +59,25 @@ import Typewriter from './Typewriter.vue'
 
 .dark #hero:before {
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* CSS-only entrance: unlike AOS it runs at first render, so it never delays LCP */
+@media (prefers-reduced-motion: no-preference) {
+  #hero .hero-container {
+    animation: hero-in 0.7s ease-out both;
+  }
+
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 #hero .hero-container {

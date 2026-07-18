@@ -13,9 +13,10 @@
 import { ref, onMounted, defineAsyncComponent } from 'vue'
 import AOS from 'aos'
 
-// Lazy-load components
-const NavbarSection = defineAsyncComponent(() => import('../components/NavbarSection.vue'))
-const HeroSection = defineAsyncComponent(() => import('../components/HeroSection.vue'))
+// Navbar & hero are above the fold: load them eagerly so the first paint
+// doesn't wait for extra async chunks. Sections below stay lazy.
+import NavbarSection from '../components/NavbarSection.vue'
+import HeroSection from '../components/HeroSection.vue'
 const AboutMeSection = defineAsyncComponent(() => import('../components/AboutMeSection.vue'))
 const ResumeSection = defineAsyncComponent(() => import('../components/ResumeSection.vue'))
 const ServiceSection = defineAsyncComponent(() => import('../components/ServiceSection.vue'))

@@ -5,12 +5,12 @@
         <p>© 2025 Aloisius Bagas Wicaksono. All rights reserved.</p>
         <p>
           📩 Interested in working together? Contact me at
-          <a href="mailto:waloisiusbagas@gmail.com" class="text-link">waloisiusbagas@gmail.com</a>
+          <a href="mailto:waloisiusbagas@gmail.com" class="text-link text-decoration-underline">waloisiusbagas@gmail.com</a>
         </p>
         <div class="d-flex flex-row gap-3">
           <div v-for="(media, index) in socialMedia" :key="index">
-            <a :href="media.path" target="_blank" rel="noopener noreferrer">
-              <i :class="['icon', media.icon]"></i>
+            <a :href="media.path" target="_blank" rel="noopener noreferrer" :aria-label="media.name">
+              <i :class="['icon', media.icon]" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -23,10 +23,10 @@
 import { ref } from 'vue'
 
 const socialMedia = ref([
-  { icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/' },
-  { icon: 'fa-brands fa-square-github', path: 'https://github.com/AloisiusBagas' },
-  { icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/AloisiusBagas' },
-  { icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/aloisiusbagas_' }
+  { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/' },
+  { name: 'GitHub', icon: 'fa-brands fa-square-github', path: 'https://github.com/AloisiusBagas' },
+  { name: 'Behance', icon: 'fa-brands fa-square-behance', path: 'https://www.behance.net/AloisiusBagas' },
+  { name: 'Instagram', icon: 'fa-brands fa-instagram', path: 'https://www.instagram.com/aloisiusbagas_' }
 ])
 </script>
 

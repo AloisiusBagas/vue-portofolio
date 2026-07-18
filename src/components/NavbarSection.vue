@@ -19,7 +19,7 @@
           <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
           <div class="ms-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher" :checked="isDarkMode"
-              @click="handleSwitchMode($event)" />
+              aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
           </div>
           <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
         </li>
@@ -28,14 +28,14 @@
         </a>
       </ul>
     </div>
-    <li class="nav-item align-items-center d-flex toggle-switch-web">
+    <div class="nav-item align-items-center d-flex toggle-switch-web">
       <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
       <div class="ms-2 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
-          @click="handleSwitchMode($event)" />
+        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcherWeb"
+          aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
       </div>
       <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
-    </li>
+    </div>
   </nav>
 </template>
 

@@ -19,7 +19,7 @@
                 <div class="mb-1">{{ skill.name }}</div>
                 <div class="progress mb-3">
                   <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
-                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
+                    :aria-label="skill.name" :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
                     {{ skill.animatedLevel }}%
                   </div>
                 </div>
