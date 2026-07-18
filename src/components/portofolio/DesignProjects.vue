@@ -21,8 +21,8 @@
           <div class="portfolio-info">
             <div class="d-flex flex-row justify-content-between">
               <h4>{{ item.title }}</h4>
-              <a href="#" @click.prevent="openFullscreen(item.image)">
-                <i class="fa-solid fa-expand" style="color: white; cursor: pointer"></i>
+              <a href="#" @click.prevent="openFullscreen(item.image)" aria-label="View image fullscreen">
+                <AppIcon icon="fa-solid fa-expand" style="color: white; cursor: pointer" />
               </a>
             </div>
           </div>
@@ -59,6 +59,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import AppIcon from '../AppIcon.vue'
 
 // Active tab state
 const activeTab = ref('posters')

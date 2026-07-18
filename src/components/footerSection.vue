@@ -10,7 +10,7 @@
         <div class="d-flex flex-row gap-3">
           <div v-for="(media, index) in socialMedia" :key="index">
             <a :href="media.path" target="_blank" rel="noopener noreferrer" :aria-label="media.name">
-              <i :class="['icon', media.icon]" aria-hidden="true"></i>
+              <AppIcon class="icon" :icon="media.icon" />
             </a>
           </div>
         </div>
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import AppIcon from './AppIcon.vue'
 
 const socialMedia = ref([
   { name: 'LinkedIn', icon: 'fa-brands fa-linkedin', path: 'https://www.linkedin.com/in/aloisiusbagas/' },

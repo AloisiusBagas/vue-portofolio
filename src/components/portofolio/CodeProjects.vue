@@ -10,15 +10,15 @@
               <h3 class="h5 card-title text-link" @click="goToDetail(item.id)">
                 {{ item.title }}
               </h3>
-              <i class="fa-solid fa-up-right-from-square" style="cursor: pointer"
-                @click="goToDetail(item.id)"></i>
+              <AppIcon icon="fa-solid fa-up-right-from-square" style="cursor: pointer"
+                @click="goToDetail(item.id)" />
             </div>
             <p class="card-text mb-3">
               {{ item.subtitle }}
             </p>
             <div class="d-flex flex-wrap gap-2">
               <span v-if="item.highlight" class="badge rounded-pill highlight-badge">
-                <i class="fa-solid fa-star me-1"></i>{{ item.highlight }}
+                <AppIcon icon="fa-solid fa-star" class="me-1" />{{ item.highlight }}
               </span>
               <span v-for="tag in item.tags" :key="tag" class="badge rounded-pill bg-light text-dark">
                 {{ tag }}
@@ -55,8 +55,10 @@ import { computed, defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { projects } from '../../data/projects'
 import type { Project } from '../../data/projects'
+import AppIcon from '../AppIcon.vue'
 
 export default defineComponent({
+  components: { AppIcon },
   setup() {
     const router = useRouter()
     const currentPage = ref(1)

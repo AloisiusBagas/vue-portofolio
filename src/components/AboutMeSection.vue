@@ -32,7 +32,7 @@
               :data-aos-delay="300 + index * 100">
               <div class="d-flex flex-column align-items-center bd-highlight mb-3 hobby-item">
                 <div class="icon-wrapper">
-                  <i :class="['icon', hobby.icon]"></i>
+                  <AppIcon class="icon" :icon="hobby.icon" />
                 </div>
                 <span>{{ hobby.name }}</span>
               </div>
@@ -48,6 +48,7 @@
 import { defineAsyncComponent, ref, onMounted } from 'vue'
 import '../assets/base.css'
 const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
+import AppIcon from './AppIcon.vue'
 
 const bio = ref(
   'Self-motivated programmer with a strong passion for developing web and mobile applications, experienced in developing, testing, and maintaining enterprise software applications, as well as designing print and social media content.'

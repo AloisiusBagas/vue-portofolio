@@ -15,13 +15,13 @@
       </div>
       <div class="hero-actions d-flex align-items-center gap-3 mt-4">
         <a href="/cv/AloisiusBagas-CV.pdf" download class="btn-cv">
-          <i class="bx bx-download"></i>
+          <AppIcon icon="bx bx-download" />
           Download CV
         </a>
       </div>
 
       <a href="#aboutme" class="btn-scroll scrollto mt-5" title="Scroll Down">
-        <i class="bx bx-chevrons-down"></i>
+        <AppIcon icon="bx bx-chevrons-down" />
       </a>
     </div>
   </section>
@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import Typewriter from './Typewriter.vue'
+import AppIcon from './AppIcon.vue'
 </script>
 
 <style scoped>
@@ -174,7 +175,7 @@ import Typewriter from './Typewriter.vue'
   /* Add some spacing from content */
 }
 
-#hero .btn-scroll i {
+#hero .btn-scroll .app-icon {
   font-size: 3rem;
   /* Adjust size of the icon */
 }

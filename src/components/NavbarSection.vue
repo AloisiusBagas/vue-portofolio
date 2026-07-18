@@ -16,12 +16,12 @@
           }}</a>
         </li>
         <li class="nav-item align-items-center d-flex toggle-switch-mobile">
-          <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+          <AppIcon icon="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }" />
           <div class="ms-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher" :checked="isDarkMode"
               aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
           </div>
-          <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
+          <AppIcon icon="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }" />
         </li>
         <a class="navbar-brand-mobile" href="#">
           <img src="/MyName.png" alt="MyApp Logo" class="navbar-logo" />
@@ -29,12 +29,12 @@
       </ul>
     </div>
     <div class="nav-item align-items-center d-flex toggle-switch-web">
-      <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+      <AppIcon icon="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }" />
       <div class="ms-2 form-check form-switch">
         <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcherWeb"
           aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
       </div>
-      <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
+      <AppIcon icon="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }" />
     </div>
   </nav>
 </template>
@@ -43,6 +43,7 @@
 import { ref, onMounted, onBeforeUnmount, type Component } from 'vue'
 import type { PropType } from 'vue'
 import { useLenis } from '../composables/useLenis'
+import AppIcon from './AppIcon.vue'
 
 const props = defineProps({
   sections: {
