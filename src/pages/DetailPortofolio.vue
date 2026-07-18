@@ -79,7 +79,7 @@
         <div class="row g-4">
           <div v-for="(img, index) in project.gallery" :key="index" class="col-md-4 col-sm-6">
             <div class="gallery-item rounded-3 overflow-hidden shadow-sm position-relative">
-              <img :src="img" class="img-fluid" alt="Gallery Image" />
+              <img :src="img" class="img-fluid" alt="Gallery Image" loading="lazy" decoding="async" />
               <div class="portfolio-info">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                   <h4 class="mb-0 text-white fs-6">Project Image {{ index + 1 }}</h4>

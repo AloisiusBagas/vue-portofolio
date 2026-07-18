@@ -16,7 +16,7 @@
         <div v-for="(item, index) in paginatedDesignItems" :key="activeTab + '-' + index"
           class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" :data-aos-delay="index * 100">
           <div class="portfolio-img">
-            <img :src="item.image" class="img-fluid" :alt="item.title" />
+            <img :src="item.image" class="img-fluid" :alt="item.title" loading="lazy" decoding="async" />
           </div>
           <div class="portfolio-info">
             <div class="d-flex flex-row justify-content-between">

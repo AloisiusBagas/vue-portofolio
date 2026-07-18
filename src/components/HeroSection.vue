@@ -62,20 +62,19 @@ import AppIcon from './AppIcon.vue'
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* CSS-only entrance: unlike AOS it runs at first render, so it never delays LCP */
+/* CSS-only entrance: transform-only (no opacity fade) so the hero text is
+   visible from the very first frame and never delays LCP */
 @media (prefers-reduced-motion: no-preference) {
   #hero .hero-container {
-    animation: hero-in 0.7s ease-out both;
+    animation: hero-in 0.6s ease-out both;
   }
 
   @keyframes hero-in {
     from {
-      opacity: 0;
       transform: translateY(24px);
     }
 
     to {
-      opacity: 1;
       transform: none;
     }
   }

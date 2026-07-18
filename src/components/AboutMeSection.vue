@@ -4,7 +4,8 @@
       <div class="row align-items-start">
         <!-- Image Section -->
         <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-up">
-          <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%" />
+          <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%"
+            loading="lazy" decoding="async" />
         </div>
 
         <!-- Bio and Skill Section -->
