@@ -14,6 +14,12 @@
           'a Graphic Designer'
         ]" :speed="100" :delayBetweenTexts="1500" />
       </div>
+      <div class="hero-actions d-flex align-items-center gap-3 mt-4">
+        <a href="/cv/AloisiusBagas-CV.pdf" download class="btn-cv">
+          <i class="bx bx-download"></i>
+          Download CV
+        </a>
+      </div>
 
       <a href="#aboutme" class="btn-scroll scrollto mt-5" title="Scroll Down">
         <i class="bx bx-chevrons-down"></i>
@@ -106,6 +112,37 @@ import Typewriter from './Typewriter.vue'
   font-size: 1.5rem;
   font-weight: bold;
   /* Optional: add some emphasis to the typewriter text */
+}
+
+/* Hero action buttons (CV + socials) */
+.hero-actions .btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-orange-color);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-actions .btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.hero-actions .social-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.hero-actions .social-link:hover {
+  color: var(--primary-orange-color);
 }
 
 /* Scroll Button Styling */

@@ -17,6 +17,9 @@
               {{ item.subtitle }}
             </p>
             <div class="d-flex flex-wrap gap-2">
+              <span v-if="item.highlight" class="badge rounded-pill highlight-badge">
+                <i class="fa-solid fa-star me-1"></i>{{ item.highlight }}
+              </span>
               <span v-for="tag in item.tags" :key="tag" class="badge rounded-pill bg-light text-dark">
                 {{ tag }}
               </span>
@@ -94,7 +97,8 @@ export default defineComponent({
           subtitle: project.subtitle,
           language: project.language || 'Unknown',
           htmlurl: project.githubLink,
-          tags: project.tag
+          tags: project.tag,
+          highlight: project.highlight
         }
       })
     })
@@ -179,6 +183,11 @@ export default defineComponent({
 
 .language-dotNet {
   background-color: #512bd4;
+}
+
+.highlight-badge {
+  background-color: var(--primary-orange-color);
+  color: #fff;
 }
 
 .text-link {
