@@ -41,10 +41,11 @@ const toggleTheme = () => {
 onMounted(() => {
   setTimeout(() => {
     AOS.init({
-      duration: 1000,
+      duration: 700,
       once: true,
-      easing: 'ease-in-out',
-      offset: 100
+      easing: 'ease-out-cubic',
+      offset: 100,
+      disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
     })
   }, 600)
 })

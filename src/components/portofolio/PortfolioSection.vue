@@ -3,7 +3,7 @@
   <section id="portfolio" class="portfolio py-5 px-4">
     <div class="container">
       <HeaderText text="Portofolio" data-aos="fade-up" />
-      <ul class="filters d-flex justify-content-center" data-aos="zoom-in">
+      <ul class="filters d-flex justify-content-center" data-aos="fade-up">
         <li v-for="(filter, index) in filters" :key="index" :class="{ 'filter-active': selectedFilter === filter }"
           @click="setFilter(filter)" class="filter-item">
           {{ filter }}

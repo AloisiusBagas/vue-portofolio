@@ -3,12 +3,12 @@
     <div class="container">
       <div class="row align-items-start">
         <!-- Image Section -->
-        <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-left">
+        <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-up">
           <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%" />
         </div>
 
         <!-- Bio and Skill Section -->
-        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
           <HeaderText text="About Me" />
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
