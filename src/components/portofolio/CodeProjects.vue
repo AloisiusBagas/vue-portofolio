@@ -142,6 +142,19 @@ export default defineComponent({
   overflow: hidden;
   background-color: var(--Background-color);
   display: flex;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .custom-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
 }
 
 .dark .custom-card {
