@@ -6,7 +6,8 @@
       <div v-for="(service, index) in listServices" :key="index">
         <div
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
-          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="fade-up">
+          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="fade-up"
+          :data-aos-delay="index * 150">
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
           <img :src="service.iconPath" width="60" height="60" class="content" />

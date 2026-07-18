@@ -1,8 +1,8 @@
 <template>
   <!-- Portfolio Items -->
   <div class="row g-4">
-    <div v-for="item in paginatedItems" :key="item.id" class="col-12 col-md-6">
-      <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="fade-up" data-aos-delay="200">
+    <div v-for="(item, index) in paginatedItems" :key="item.id" class="col-12 col-md-6">
+      <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="fade-up" :data-aos-delay="index * 100">
         <div class="green-container" :class="getLanguageClass(item.language)"></div>
         <div class="flex-grow-1">
           <div class="card-body">

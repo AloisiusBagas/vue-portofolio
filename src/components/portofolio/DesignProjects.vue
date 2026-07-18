@@ -14,7 +14,7 @@
       <!-- Portfolio Items with Swipe Gesture -->
       <div class="row portfolio-container">
         <div v-for="(item, index) in paginatedDesignItems" :key="activeTab + '-' + index"
-          class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" data-aos-delay="200">
+          class="col-lg-4 col-md-6 portfolio-item" data-aos="fade-up" :data-aos-delay="index * 100">
           <div class="portfolio-img">
             <img :src="item.image" class="img-fluid" :alt="item.title" />
           </div>

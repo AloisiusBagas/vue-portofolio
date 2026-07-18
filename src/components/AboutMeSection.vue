@@ -14,7 +14,8 @@
           <p>{{ experience }}</p>
           <div class="my-3">
             <div class="row">
-              <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
+              <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2" data-aos="fade-up"
+                :data-aos-delay="300 + index * 100">
                 <div class="mb-1">{{ skill.name }}</div>
                 <div class="progress mb-3">
                   <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
@@ -27,7 +28,8 @@
           </div>
           <h2>Hobbies</h2>
           <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start mt-3">
-            <div v-for="(hobby, index) in hobbies" :key="index">
+            <div v-for="(hobby, index) in hobbies" :key="index" data-aos="fade-up"
+              :data-aos-delay="300 + index * 100">
               <div class="d-flex flex-column align-items-center bd-highlight mb-3 hobby-item">
                 <div class="icon-wrapper">
                   <i :class="['icon', hobby.icon]"></i>
