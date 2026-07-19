@@ -1,15 +1,16 @@
 <template>
   <section id="services" class="about py-5 px-4">
-    <HeaderText text="My Services" data-aos="zoom-in-down" />
+    <HeaderText text="My Services" data-aos="fade-up" />
 
     <div class="d-flex flex-row justify-content-center gap-5 flex-wrap">
       <div v-for="(service, index) in listServices" :key="index">
         <div
           class="card col-md-3 col-sm-12 p-4 d-flex flex-column align-items-center text-center justify-content-center gap-3"
-          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="zoom-in-down">
+          :style="{ backgroundImage: `url(${service.backgroundImage})` }" data-aos="fade-up"
+          :data-aos-delay="index * 150">
           <div class="overlay"></div>
           <!-- Dark overlay on background -->
-          <img :src="service.iconPath" width="60" height="60" class="content" />
+          <img :src="service.iconPath" width="60" height="60" class="content" :alt="service.title" />
           <p class="mt-2 content title">{{ service.title }}</p>
 
           <!-- Animated Box -->

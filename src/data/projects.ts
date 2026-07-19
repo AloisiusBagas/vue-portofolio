@@ -11,6 +11,7 @@ export interface Project {
   features: { title: string; desc: string; icon: string }[];
   gallery: string[];
   language?: string;
+  highlight?: string;
 }
 
 export const projects: Project[] = [
@@ -70,7 +71,8 @@ export const projects: Project[] = [
       'https://raw.githubusercontent.com/AloisiusBagas/Gojek-UI-Clone/master/Screenshot/Screenshot_1592554496.png',
       'https://raw.githubusercontent.com/AloisiusBagas/Gojek-UI-Clone/master/Screenshot/Screenshot_1592554510.png'
     ],
-    language: 'Flutter'
+    language: 'Flutter',
+    highlight: '57 stars · 45 forks on GitHub'
   },
   //============== OVO UI Clone ===============
   {
@@ -128,7 +130,8 @@ export const projects: Project[] = [
       'https://raw.githubusercontent.com/AloisiusBagas/OVO-UI-Clone/master/Demo/InstantTopUp.gif',
       'https://raw.githubusercontent.com/AloisiusBagas/OVO-UI-Clone/master/Demo/MetodeLain.gif'
     ],
-    language: 'Flutter'
+    language: 'Flutter',
+    highlight: '16 stars · 6 forks on GitHub'
   },
   //============== React E-commerce Template ===============
 

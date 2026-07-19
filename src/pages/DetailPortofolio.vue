@@ -47,7 +47,7 @@
                 :key="tech.name"
                 class="tech-item d-flex align-items-center"
               >
-                <i :class="tech.icon" class="me-2 text-primary"></i>
+                <AppIcon :icon="tech.icon" class="me-2 text-primary" />
                 <span>{{ tech.name }}</span>
               </div>
             </div>
@@ -63,7 +63,7 @@
           <div v-for="feature in project.features" :key="feature.title" class="col-md-4">
             <div class="card h-100 feature-card border-0 shadow-sm p-4">
               <div class="feature-icon-wrapper mb-3">
-                <i :class="feature.icon"></i>
+                <AppIcon :icon="feature.icon" />
               </div>
               <h5 class="fw-bold">{{ feature.title }}</h5>
               <p class="text-muted small mb-0">{{ feature.desc }}</p>
@@ -83,8 +83,8 @@
               <div class="portfolio-info">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                   <h4 class="mb-0 text-white fs-6">Project Image {{ index + 1 }}</h4>
-                  <a href="#" @click.prevent="openFullscreen(img)">
-                <i class="fa-solid fa-expand" style="color: white; cursor: pointer"></i>
+                  <a href="#" @click.prevent="openFullscreen(img)" aria-label="View image fullscreen">
+                    <AppIcon icon="fa-solid fa-expand" style="color: white; cursor: pointer" />
                   </a>
                 </div>
               </div>
@@ -107,6 +107,7 @@ import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { projects } from '../data/projects'
 import type { Project } from '../data/projects'
+import AppIcon from '../components/AppIcon.vue'
 
 const route = useRoute()
 // Find the project based on the route parameter 'id'

@@ -1,10 +1,10 @@
 <template>
   <section id="resume" class="resume py-5 px-4">
-    <div class="container" data-aos="fade-right">
+    <div class="container" data-aos="fade-up">
       <HeaderText text="My Resume" />
 
       <div class="row">
-        <div class="col-lg-6 order-1 order-md-1 order-lg-2" data-aos="fade-right" data-aos-delay="300">
+        <div class="col-lg-6 order-1 order-md-1 order-lg-2" data-aos="fade-up" data-aos-delay="300">
           <h3 class="resume-title">Professional Experience</h3>
           <div v-for="(job, index) in experience" :key="index" class="resume-item">
             <h4>{{ job.title }}</h4>
@@ -18,7 +18,7 @@
           </div>
         </div>
 
-        <div class="col-lg-6 order-2 order-md-2 order-lg-1" data-aos="fade-right">
+        <div class="col-lg-6 order-2 order-md-2 order-lg-1" data-aos="fade-up">
           <h3 class="resume-title">Education</h3>
           <div v-for="(edu, index) in education" :key="index" class="resume-item">
             <h4>{{ edu.degree }}</h4>

@@ -1,22 +1,25 @@
 <template>
   <!-- Portfolio Items -->
   <div class="row g-4">
-    <div v-for="item in paginatedItems" :key="item.id" class="col-12 col-md-6">
-      <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="zoom-in" data-aos-delay="200">
+    <div v-for="(item, index) in paginatedItems" :key="item.id" class="col-12 col-md-6">
+      <div class="card mb-3 h-100 custom-card d-flex flex-row" data-aos="fade-up" :data-aos-delay="index * 100">
         <div class="green-container" :class="getLanguageClass(item.language)"></div>
         <div class="flex-grow-1">
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title text-link" @click="goToDetail(item.id)">
+              <h3 class="h5 card-title text-link" @click="goToDetail(item.id)">
                 {{ item.title }}
-              </h5>
-              <i class="fa-solid fa-up-right-from-square" style="cursor: pointer"
-                @click="goToDetail(item.id)"></i>
+              </h3>
+              <AppIcon icon="fa-solid fa-up-right-from-square" style="cursor: pointer"
+                @click="goToDetail(item.id)" />
             </div>
             <p class="card-text mb-3">
               {{ item.subtitle }}
             </p>
             <div class="d-flex flex-wrap gap-2">
+              <span v-if="item.highlight" class="badge rounded-pill highlight-badge">
+                <AppIcon icon="fa-solid fa-star" class="me-1" />{{ item.highlight }}
+              </span>
               <span v-for="tag in item.tags" :key="tag" class="badge rounded-pill bg-light text-dark">
                 {{ tag }}
               </span>
@@ -52,8 +55,10 @@ import { computed, defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { projects } from '../../data/projects'
 import type { Project } from '../../data/projects'
+import AppIcon from '../AppIcon.vue'
 
 export default defineComponent({
+  components: { AppIcon },
   setup() {
     const router = useRouter()
     const currentPage = ref(1)
@@ -94,7 +99,8 @@ export default defineComponent({
           subtitle: project.subtitle,
           language: project.language || 'Unknown',
           htmlurl: project.githubLink,
-          tags: project.tag
+          tags: project.tag,
+          highlight: project.highlight
         }
       })
     })
@@ -142,6 +148,19 @@ export default defineComponent({
   overflow: hidden;
   background-color: var(--Background-color);
   display: flex;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .custom-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
 }
 
 .dark .custom-card {
@@ -166,6 +185,11 @@ export default defineComponent({
 
 .language-dotNet {
   background-color: #512bd4;
+}
+
+.highlight-badge {
+  background-color: var(--primary-orange-color);
+  color: #fff;
 }
 
 .text-link {

@@ -10,38 +10,40 @@
     <div class="collapse navbar-collapse w-100" id="navbarNav" :class="{ 'menu-open': menuOpen }">
       <ul class="navbar-nav">
         <li class="nav-item" v-for="section in sections" :key="section.id" :class="{ active: isActive(section.id) }"
-          @click="setActiveSection(section.id)">
+          @click.prevent="setActiveSection(section.id)">
           <a class="nav-link text-center" :href="'#' + section.id" v-if="section.label">{{
             section.label
           }}</a>
         </li>
         <li class="nav-item align-items-center d-flex toggle-switch-mobile">
-          <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+          <AppIcon icon="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }" />
           <div class="ms-2 form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher" :checked="isDarkMode"
-              @click="handleSwitchMode($event)" />
+              aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
           </div>
-          <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
+          <AppIcon icon="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }" />
         </li>
         <a class="navbar-brand-mobile" href="#">
           <img src="/MyName.png" alt="MyApp Logo" class="navbar-logo" />
         </a>
       </ul>
     </div>
-    <li class="nav-item align-items-center d-flex toggle-switch-web">
-      <i class="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }"></i>
+    <div class="nav-item align-items-center d-flex toggle-switch-web">
+      <AppIcon icon="fas fa-sun" :class="{ 'icon-on': !isDarkMode, 'icon-off': isDarkMode }" />
       <div class="ms-2 form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcher"
-          @click="handleSwitchMode($event)" />
+        <input class="form-check-input" type="checkbox" role="switch" id="themingSwitcherWeb"
+          aria-label="Toggle dark mode" @click="handleSwitchMode($event)" />
       </div>
-      <i class="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }"></i>
-    </li>
+      <AppIcon icon="fa-solid fa-moon" :class="{ 'icon-on': isDarkMode, 'icon-off': !isDarkMode }" />
+    </div>
   </nav>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, type Component } from 'vue'
 import type { PropType } from 'vue'
+import { useLenis } from '../composables/useLenis'
+import AppIcon from './AppIcon.vue'
 
 const props = defineProps({
   sections: {
@@ -87,7 +89,12 @@ const setActiveSection = (sectionId: string) => {
   const element = document.getElementById(sectionId)
 
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const lenis = useLenis()
+    if (lenis) {
+      lenis.scrollTo(element)
+    } else {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
   }
   menuOpen.value = false // Close menu after selection (for mobile)
 }

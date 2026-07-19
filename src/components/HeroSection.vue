@@ -1,7 +1,6 @@
 <template>
   <section id="hero" class="d-flex justify-content-center align-items-center">
-    <div class="container d-flex flex-column justify-content-center align-items-center hero-container"
-      data-aos="fade-up">
+    <div class="container d-flex flex-column justify-content-center align-items-center hero-container">
       <h2 class="headerText">Hello! I am</h2>
       <h1 class="text-center">Aloisius Bagas Wicaksono</h1>
       <div class="d-flex flex-row align-items-center">
@@ -14,9 +13,15 @@
           'a Graphic Designer'
         ]" :speed="100" :delayBetweenTexts="1500" />
       </div>
+      <div class="hero-actions d-flex align-items-center gap-3 mt-4">
+        <a href="/cv/AloisiusBagas-CV.pdf" download class="btn-cv">
+          <AppIcon icon="bx bx-download" />
+          Download CV
+        </a>
+      </div>
 
       <a href="#aboutme" class="btn-scroll scrollto mt-5" title="Scroll Down">
-        <i class="bx bx-chevrons-down"></i>
+        <AppIcon icon="bx bx-chevrons-down" />
       </a>
     </div>
   </section>
@@ -24,6 +29,7 @@
 
 <script setup lang="ts">
 import Typewriter from './Typewriter.vue'
+import AppIcon from './AppIcon.vue'
 </script>
 
 <style scoped>
@@ -54,6 +60,25 @@ import Typewriter from './Typewriter.vue'
 
 .dark #hero:before {
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* CSS-only entrance: unlike AOS it runs at first render, so it never delays LCP */
+@media (prefers-reduced-motion: no-preference) {
+  #hero .hero-container {
+    animation: hero-in 0.7s ease-out both;
+  }
+
+  @keyframes hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 #hero .hero-container {
@@ -108,6 +133,37 @@ import Typewriter from './Typewriter.vue'
   /* Optional: add some emphasis to the typewriter text */
 }
 
+/* Hero action buttons (CV + socials) */
+.hero-actions .btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary-orange-color);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-actions .btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.hero-actions .social-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 2rem;
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.hero-actions .social-link:hover {
+  color: var(--primary-orange-color);
+}
+
 /* Scroll Button Styling */
 #hero .btn-scroll {
   transition: 0.4s;
@@ -119,7 +175,7 @@ import Typewriter from './Typewriter.vue'
   /* Add some spacing from content */
 }
 
-#hero .btn-scroll i {
+#hero .btn-scroll .app-icon {
   font-size: 3rem;
   /* Adjust size of the icon */
 }

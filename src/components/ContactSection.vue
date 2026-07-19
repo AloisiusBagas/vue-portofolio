@@ -7,7 +7,7 @@
         <div class="row gy-5">
           <div v-for="(item, index) in contactInfo" :key="index" class="col-lg-4">
             <div class="info-item" @click="item.action">
-              <i :class="item.icon"></i>
+              <AppIcon class="info-icon" :icon="item.icon" />
               <div>
                 <h3>{{ item.label }}</h3>
                 <p>{{ item.value }}</p>
@@ -30,6 +30,7 @@
               type="text"
               class="form-control"
               placeholder="Your Name"
+              aria-label="Your Name"
               required
             />
           </div>
@@ -39,6 +40,7 @@
               type="email"
               class="form-control"
               placeholder="Your Email"
+              aria-label="Your Email"
               required
             />
           </div>
@@ -48,6 +50,7 @@
               type="text"
               class="form-control"
               placeholder="Subject"
+              aria-label="Subject"
               required
             />
           </div>
@@ -57,6 +60,7 @@
               class="form-control"
               rows="6"
               placeholder="Message"
+              aria-label="Message"
               required
             ></textarea>
           </div>
@@ -66,7 +70,7 @@
                 <div class="spinner-border text-light" role="status"></div>
               </template>
               <template v-else>
-                <i class="fa-solid fa-paper-plane"></i>
+                <AppIcon icon="fa-solid fa-paper-plane" />
                 Send Message
               </template>
             </button>
@@ -82,6 +86,8 @@ import { computed, defineAsyncComponent, ref } from 'vue'
 import { useContactStore } from '../stores/contactStore'
 import { EmailModel } from '../models/emailModel'
 import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+import AppIcon from './AppIcon.vue'
 
 const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
 const contactStore = useContactStore()
@@ -171,7 +177,13 @@ const handleSubmit = async () => {
   cursor: pointer;
 }
 
-.contact .info-item i {
+.contact .info-item .info-icon :deep(svg) {
+  /* Icon glyph stays 20px inside the 56px circle (matches the old icon-font look) */
+  width: 20px;
+  height: 20px;
+}
+
+.contact .info-item .info-icon {
   font-size: 20px;
   color: var(--primary-orange-color);
   width: 56px;
@@ -185,7 +197,7 @@ const handleSubmit = async () => {
   transition: 0.3s;
 }
 
-.contact .info-item i:hover {
+.contact .info-item .info-icon:hover {
   background: var(--primary-orange-color);
   color: #fff;
 }

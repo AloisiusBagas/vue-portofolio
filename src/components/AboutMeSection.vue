@@ -3,22 +3,23 @@
     <div class="container">
       <div class="row align-items-start">
         <!-- Image Section -->
-        <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-left">
+        <div class="d-flex col-lg-6 mb-4 mb-lg-0 justify-content-center" data-aos="fade-up">
           <img src="/images/FotoWisuda.jpg" alt="My Bio" class="img-fluid rounded shadow" style="max-width: 70%" />
         </div>
 
         <!-- Bio and Skill Section -->
-        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
           <HeaderText text="About Me" />
           <p>{{ bio }}</p>
           <p>{{ experience }}</p>
           <div class="my-3">
             <div class="row">
-              <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2">
+              <div v-for="(skill, index) in skills" :key="index" class="col-md-6 mb-2" data-aos="fade-up"
+                :data-aos-delay="300 + index * 100">
                 <div class="mb-1">{{ skill.name }}</div>
                 <div class="progress mb-3">
                   <div class="progress-bar" role="progressbar" :style="{ width: skill.animatedLevel + '%' }"
-                    :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
+                    :aria-label="skill.name" :aria-valuenow="skill.animatedLevel" aria-valuemin="0" aria-valuemax="100">
                     {{ skill.animatedLevel }}%
                   </div>
                 </div>
@@ -27,10 +28,11 @@
           </div>
           <h2>Hobbies</h2>
           <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start mt-3">
-            <div v-for="(hobby, index) in hobbies" :key="index">
+            <div v-for="(hobby, index) in hobbies" :key="index" data-aos="fade-up"
+              :data-aos-delay="300 + index * 100">
               <div class="d-flex flex-column align-items-center bd-highlight mb-3 hobby-item">
                 <div class="icon-wrapper">
-                  <i :class="['icon', hobby.icon]"></i>
+                  <AppIcon class="icon" :icon="hobby.icon" />
                 </div>
                 <span>{{ hobby.name }}</span>
               </div>
@@ -46,6 +48,7 @@
 import { defineAsyncComponent, ref, onMounted } from 'vue'
 import '../assets/base.css'
 const HeaderText = defineAsyncComponent(() => import('../components/HeaderText.vue'))
+import AppIcon from './AppIcon.vue'
 
 const bio = ref(
   'Self-motivated programmer with a strong passion for developing web and mobile applications, experienced in developing, testing, and maintaining enterprise software applications, as well as designing print and social media content.'
